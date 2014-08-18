@@ -1,0 +1,7 @@
+wizzlern_pegi.all_games:
+  path: '/games'
+  defaults:
+    _content: '\Drupal\wizzlern_pegi\Controller\WizzlernPegiController::AllGames'
+    _title: 'Games'
+  requirements:
+    _permission: 'access content'

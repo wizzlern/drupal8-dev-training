@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * @todo
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  //var_dump($form);
+  unset($form['pass']['#description']);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * @todo Optional exercise?
+ */
+function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+//  var_dump($form);
+  $form['account']['mail']['#weight'] = 1;
+  $form['account']['name']['#weight'] = 3;
+  $form['account']['field_user_age'] = $form['field_user_age'];
+  $form['account']['field_user_age']['#weight'] = 2;
+  unset($form['field_user_age']);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
+  /** @var \Drupal\node\Entity\Node $entity */
+  $access = NULL;
+
+  if ($entity->hasField('field_allowed_age')) {
+    $allowed_age = $entity->field_allowed_age;
+
+    /** @var \Drupal\user\Entity\User $user */
+    $user = User::load($account->id());
+    $age = $user->field_user_age;
+
+    $access = $age >= $allowed_age;
+  }
+
+  return $access;
+}

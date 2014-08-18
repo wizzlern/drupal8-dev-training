@@ -1,0 +1,6 @@
+name: Wizzlern Pegi
+type: module
+description: 'Age restricted content using Pegi classification for Drupal 8 development training.'
+package: Wizzlern
+version: 8.x-1.x
+core: 8.x
