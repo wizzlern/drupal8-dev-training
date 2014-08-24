@@ -60,7 +60,7 @@ class WizzlernPegiController extends ControllerBase {
    * @return array
    *   Render array of page output.
    */
-  public function AllGames() {
+  public function allGames() {
     $items = array();
 
     $nids = $this->entityQuery->get('node')
