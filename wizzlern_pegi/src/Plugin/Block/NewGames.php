@@ -7,9 +7,7 @@
 
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
-use Drupal\block\Annotation\Block;
-use Drupal\block\BlockBase;
-use Drupal\Core\Annotation\Translation;
+use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
