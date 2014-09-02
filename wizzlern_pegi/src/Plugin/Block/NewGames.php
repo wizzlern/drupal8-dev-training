@@ -113,8 +113,11 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
       ->execute();
     $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
 
+    /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
-      $items[] = l($node->title->value, 'node/' . $node->id());
+      if ($node->access('view')) {
+        $items[] = l($node->title->value, 'node/' . $node->id());
+      }
     }
 
     return array(

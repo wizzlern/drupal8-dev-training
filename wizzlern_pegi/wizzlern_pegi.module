@@ -36,13 +36,17 @@ function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, 
   $access = NULL;
 
   if ($entity->hasField('field_allowed_age')) {
-    $allowed_age = $entity->field_allowed_age;
+    $allowed_age = $entity->field_allowed_age->value;
 
     /** @var \Drupal\user\Entity\User $user */
     $user = User::load($account->id());
-    $age = $user->field_user_age;
+    $age = $user->field_user_age->value;
 
-    $access = $age >= $allowed_age;
+    // Deny access when user is too young. If old enough, we return NULL, not
+    // TRUE. Other modules can still deny access.
+    if ($age < $allowed_age) {
+      $access = FALSE;
+    }
   }
 
   return $access;
