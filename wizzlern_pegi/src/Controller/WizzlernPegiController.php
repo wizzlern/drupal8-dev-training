@@ -71,8 +71,12 @@ class WizzlernPegiController extends ControllerBase {
       ->execute();
     $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
 
+    /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $nid => $node) {
-      $items[$nid] = $this->entityManager->getViewBuilder('node')->view($node, 'teaser');
+      if ($node->access('view')) {
+        $items[$nid] = $this->entityManager->getViewBuilder('node')
+          ->view($node, 'teaser');
+      }
     }
     $build['games'] = array(
       '#theme' => 'item_list',

@@ -104,7 +104,6 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     $items = array();
     $max = $this->configuration['max_items'];
 
-    // @todo Replace 'game' content type by configurable content types.
     $nids = $this->entityQuery->get('node')
       ->condition('type', 'game')
       ->condition('status', 1)
