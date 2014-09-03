@@ -40,7 +40,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   protected $entityQuery;
 
   /**
-   * @todo
+   * Constructs a new NewGames block instance.
    *
    * @param array $configuration
    * @param string $plugin_id

@@ -2,25 +2,26 @@
 
 /**
  * @file
- * @todo
+ * Drupal hook implementations for Wizzlern Pegi module.
  */
 
 use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user login form. Removes the description from the password field.
  */
 function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  //var_dump($form);
   unset($form['pass']['#description']);
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
- * @todo Optional exercise?
+ *
+ * Alters the user registration form. Changes the order fields.
  */
 function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-//  var_dump($form);
   $form['account']['mail']['#weight'] = 1;
   $form['account']['name']['#weight'] = 3;
   $form['account']['field_user_age'] = $form['field_user_age'];
@@ -30,6 +31,18 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
 
 /**
  * Implements hook_ENTITY_TYPE_access().
+ *
+ * Drupal has two mechanism for access control. One at database level and
+ * one using fully loaded entities. The first one (using hook_node_grants()
+ * and hook_node_access_records()) is preferred for performance. The second
+ * (using hook_ENTITY_TYPE_access()) uses the fully loaded entity and is
+ * preferred for edit and delete operations. It allows access check on dynamic
+ * data, but performs less for 'view' operations because the entity has to be
+ * loaded before access can be checked.
+ *
+ * @return boolean|NULL
+ *   Returns TRUE if access is granted, FALSE if access is denied and NULL if
+ *   access is undetermined and left to other modules to decide.
  */
 function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
   /** @var \Drupal\node\Entity\Node $entity */
