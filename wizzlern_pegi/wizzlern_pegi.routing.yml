@@ -1,3 +1,4 @@
+# Static route definition for the URL /games.
 wizzlern_pegi.all_games:
   path: '/games'
   defaults:

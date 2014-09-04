@@ -32,7 +32,7 @@ class WizzlernPegiController extends ControllerBase {
   protected $entityQuery;
 
   /**
-   * @todo
+   * Constructs a content controller.
    *
    * @param EntityManagerInterface $entity_manager
    * @param QueryFactory $entity_query
@@ -45,6 +45,12 @@ class WizzlernPegiController extends ControllerBase {
 
   /**
    * {@inheritdoc}
+   *
+   * This class requires entity.manager and entity.query services, but they are
+   * not available in the the controller base class. The create() method is used
+   * to instantiate the controller with the required services. Pointers to the
+   * services are passed on to the class constructor where they are stored in
+   * the class for further use.
    */
   public static function create(ContainerInterface $container) {
 
@@ -55,7 +61,7 @@ class WizzlernPegiController extends ControllerBase {
   }
 
   /**
-   * Controller content callback: All games.
+   * Content controller callback: All games.
    *
    * @return array
    *   Render array of page output.
@@ -63,14 +69,18 @@ class WizzlernPegiController extends ControllerBase {
   public function allGames() {
     $items = array();
 
+    // Load all published games. The pager() method is used to limit the number
+    // of results and to prepare the query for paging.
     $nids = $this->entityQuery->get('node')
       ->condition('type', 'game')
       ->condition('status', 1)
-      ->sort('created')
+      ->sort('created', 'DESC')
       ->pager(5)
       ->execute();
     $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
 
+    // Build a list of node teasers. The EntityViewBuilder and NodeViewBuilder
+    // classes have several methods to build the output render array.
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $nid => $node) {
       if ($node->access('view')) {
@@ -78,10 +88,13 @@ class WizzlernPegiController extends ControllerBase {
           ->view($node, 'teaser');
       }
     }
+
     $build['games'] = array(
       '#theme' => 'item_list',
       '#items' => $items,
     );
+    // Thanks to the pager() method above, it is very easy to add a pager
+    // to the output.
     $build['pager'] = array('#theme' => 'pager');
 
     return $build;

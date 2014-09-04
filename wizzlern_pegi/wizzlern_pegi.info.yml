@@ -1,6 +1,16 @@
+# name is required.
 name: Wizzlern Pegi
+# type is required. It can be 'module', 'theme' and 'profile'.
 type: module
+# description is shown on the module overview pages.
 description: 'Age restricted content using Pegi classification for Drupal 8 development training.'
+# package is used for grouping on the module overview page.
 package: Wizzlern
+# version must match the drupal version number pattern.
 version: 8.x-1.x
+# core is required. It must match the drupal core version.
 core: 8.x
+
+# Other frequenty used properties:
+# dependencies: list of modules that this module requires.
+# configure: route definition of the module's configuration page.
