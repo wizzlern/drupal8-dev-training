@@ -28,14 +28,14 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   /**
    * The entity manager
    *
-   * @var EntityManagerInterface
+   * @var \Drupal\Core\Entity\EntityManagerInterface
    */
   protected $entityManager;
 
   /**
    * The entity query manager
    *
-   * @var QueryFactory
+   * @var \Drupal\Core\Entity\Query\QueryFactory
    */
   protected $entityQuery;
 
@@ -43,10 +43,18 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    * Constructs a new NewGames block instance.
    *
    * @param array $configuration
+   *   The plugin configuration, i.e. an array with configuration values keyed
+   *   by configuration option name. The special key 'context' may be used to
+   *   initialize the defined contexts by setting it to an array of context
+   *   values keyed by context names.
    * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
-   * @param EntityManagerInterface $entity_manager
-   * @param QueryFactory $entity_query
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
+   *   Entity manager service.
+   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
+   *   Entity query manager service.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_manager, QueryFactory $entity_query) {
 
@@ -57,6 +65,10 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * {@inheritdoc}
+   *
+   * Setter injection is used to add additional interfaces to this block class.
+   * A block class must implement ContainerFactoryPluginInterface for this
+   * create() method to work.
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
 
@@ -69,7 +81,6 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   public function defaultConfiguration() {
 
     return array(
-//      'label' => t('Games'),
       'max_items' => 5,
     );
   }
