@@ -61,9 +61,8 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
  * data, but performs less for 'view' operations because the entity has to be
  * loaded before access can be checked.
  *
- * @return bool|null
- *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
- *   deny access.
+ * @return \Drupal\Core\Access\AccessResultInterface
+ *    The access result.
  *
  * @see hook_ENTITY_TYPE_access()
  */
@@ -78,8 +77,10 @@ function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, 
     $user = User::load($account->id());
     $age = $user->field_user_age->value;
 
-    // Deny access when user is too young. If old enough, we return NULL, not
-    // TRUE. Other modules can still deny access.
+    // Deny access when user is too young. If old enough, we return an
+    // instantiated AccessResult object that neither explicitly allows nor
+    // explicitly forbids access. Other modules can still deny access. If too
+    // young we explicitly forbid access.
     if ($age < $allowed_age) {
       $access = AccessResult::forbidden();
     }
