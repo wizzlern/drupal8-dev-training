@@ -36,12 +36,14 @@ class UserAge extends ConditionPluginBase {
       '#default_value' => $this->configuration['condition'],
       '#options' => $this->logicalConditions(),
     );
+    $options = array('0' => $this->t('Not restricted'));
+    $options += $this->pegiRatings();
     $form['rating'] = array(
       '#type' => 'select',
       '#title' => $this->t('Pegi rating'),
       '#default_value' => $this->configuration['rating'],
-      '#required' => TRUE,
-      '#options' => $this->pegiRatings(),
+      '#options' => $options,
+      '#description' => $this->t('By selecting a value enable this condition.'),
     );
     return parent::buildConfigurationForm($form, $form_state);
   }
@@ -51,8 +53,8 @@ class UserAge extends ConditionPluginBase {
    */
   public function defaultConfiguration() {
     return array(
-      'rating' => array(),
-      'condition' => '==',
+      'rating' => '0',
+      'condition' => '<=',
     ) + parent::defaultConfiguration();
   }
 
@@ -74,11 +76,19 @@ class UserAge extends ConditionPluginBase {
     $conditions = $this->logicalConditions();
     $condition = $conditions[$this->configuration['condition']];
 
-    if (!empty($this->configuration['negate'])) {
-      return $this->t("The user's age is @condition the @rating rating", array('@condition' => $condition, '@rating' => $rating));
-    }
-    else {
-      return $this->t("The user's age is not @condition the @rating rating", array('@condition' => $condition, '@rating' => $rating));
+    if (!empty($this->configuration['rating'])) {
+      if (!empty($this->configuration['negate'])) {
+        return $this->t("The user's age is @condition the @rating rating", array(
+          '@condition' => $condition,
+          '@rating' => $rating
+        ));
+      }
+      else {
+        return $this->t("The user's age is not @condition the @rating rating", array(
+          '@condition' => $condition,
+          '@rating' => $rating
+        ));
+      }
     }
   }
 
@@ -87,40 +97,45 @@ class UserAge extends ConditionPluginBase {
    */
   public function evaluate() {
 
+    if (empty($this->configuration['rating'])) {
+      return TRUE;
+    }
+
     $result = FALSE;
     $user = $this->getContextValue('user');
-//debug($user);
-    $user_age = 8;
+    $user_age = $user->field_user_age->value;
+    $term = Term::load($this->configuration['rating']);
+    $allowed_age = $term->field_allowed_age->value;
 
     switch ($this->configuration['condition']) {
       case '<':
-        $result = $user_age < $this->configuration['rating'];
+        $result = $user_age < $allowed_age;
         break;
 
       case '<=':
-        $result = $user_age <= $this->configuration['rating'];
+        $result = $user_age <= $allowed_age;
         break;
 
       case '==':
-        $result = $user_age == $this->configuration['rating'];
+        $result = $user_age == $allowed_age;
         break;
 
       case '>=':
-        $result = $user_age >= $this->configuration['rating'];
+        $result = $user_age >= $allowed_age;
         break;
 
       case '>':
-        $result = $user_age > $this->configuration['rating'];
+        $result = $user_age > $allowed_age;
         break;
     }
     return $this->configuration['negate'] ? !$result : $result;
   }
 
   /**
-   * Returns available conditions.
+   * Returns available logical conditions.
    *
    * @return array
-   *   Array of conditions names keyed by their comparison sign.
+   *   Array of conditions names keyed by their logical comparison string.
    */
   protected function logicalConditions() {
 
@@ -154,7 +169,6 @@ class UserAge extends ConditionPluginBase {
       $ratings[$term->id()] = $term->getName();
     }
     return $ratings;
-
   }
 
 }
