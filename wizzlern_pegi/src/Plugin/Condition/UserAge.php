@@ -132,6 +132,16 @@ class UserAge extends ConditionPluginBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    return array(
+      'content' => array('taxonomy:pegi_rating'),
+      'module' => array('taxonomy'),
+    );
+  }
+
+  /**
    * Returns available logical conditions.
    *
    * @return array
