@@ -8,11 +8,11 @@
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a recent games block.
@@ -126,7 +126,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
       if ($node->access('view')) {
-        $items[] = l($node->title->value, 'node/' . $node->id());
+        $items[] = \Drupal::l($node->title->value, $node->urlInfo());
       }
     }
 
