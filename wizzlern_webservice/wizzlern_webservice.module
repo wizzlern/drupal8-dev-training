@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * @file
+ * Contains wizzlern_webservice.module.
+ */
+
+// Register autoloading of vendor libraries.
+require 'vendor/autoload.php';

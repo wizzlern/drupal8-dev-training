@@ -1,0 +1,18 @@
+wizzlern_webservice.html_client.*:
+  type: config_entity
+  label: 'Wizzlern webservice config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    endpoint_url:
+      type: string
+      label: 'URL'
+    processors:
+      type: array
+      label: 'Processors'
