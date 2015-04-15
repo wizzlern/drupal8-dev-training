@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\wizzlern_webservice\Controller\DefaultController.
+ * Contains Drupal\wizzlern_webservice\Controller\DisplayController.
  */
 
 namespace Drupal\wizzlern_webservice\Controller;
@@ -12,11 +12,11 @@ use Drupal\wizzlern_webservice\ClientApi\HtmlClientApi;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class DefaultController.
+ * Class DisplayController.
  *
  * @package Drupal\wizzlern_webservice\Controller
  */
-class DefaultController extends ControllerBase {
+class DisplayController extends ControllerBase {
 
   /**
    * HTML Client API.
@@ -49,7 +49,7 @@ class DefaultController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('wizzlern_webservice.html_client'),
-      $container->get('plugin.manager.html_client.html_processor')
+      $container->get('plugin.manager.html_client.processor')
     );
   }
 
@@ -63,10 +63,11 @@ class DefaultController extends ControllerBase {
 
     $items = array();
 
-    /** @var \Drupal\wizzlern_webservice\Entity\WizzlernWebservice[] $entities */
+    /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
     $entities = $this->entityManager()->getStorage('html_client')->loadMultiple();
     foreach($entities as $entity) {
 
+      // Load HTML data from the endpoint.
       try {
         $dom = $this->htmlClientApi->loadDom($entity->getEndpointUrl());
       }
@@ -76,6 +77,7 @@ class DefaultController extends ControllerBase {
         break;
       }
 
+      // Execute processor plugins on the HTML data.
       foreach ($entity->getProcessors() as $plugin_id) {
 
         // Load and execute HTML processor plugin.

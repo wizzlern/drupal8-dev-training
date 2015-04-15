@@ -8,7 +8,6 @@
 namespace Drupal\wizzlern_webservice\Controller;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\wizzlern_webservice\Entity\HtmlClient;
 
 /**
@@ -28,7 +27,7 @@ class HtmlClientListBuilder extends ConfigEntityListBuilder {
   /**
    * {@inheritdoc}
    */
-  public function buildRow(EntityInterface $entity) {
+  public function buildRow(HtmlClient $entity) {
     $row['label'] = $this->getLabel($entity);
     $row['id'] = $entity->id();
     $row['url'] = $entity->getEndpointUrl();

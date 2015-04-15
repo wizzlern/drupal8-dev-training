@@ -7,6 +7,7 @@
 namespace Drupal\wizzlern_webservice\Plugin\HtmlProcessor;
 
 use Drupal\Core\Language\LanguageManager;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\wizzlern_webservice\HtmlProcessorBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -18,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   label = @Translation("Page language"),
  * )
  */
-class HtmlLanguageProcessor extends HtmlProcessorBase {
+class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactoryPluginInterface {
 
   /**
    * Language manager.
@@ -30,17 +31,23 @@ class HtmlLanguageProcessor extends HtmlProcessorBase {
   /**
    * Constructs the HtmlLanguageProcessor object.
    *
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
    * @param \Drupal\Core\Language\LanguageManager $language_manager
    */
-  public function __construct(LanguageManager $language_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, $language_manager) {
     $this->languageManager = $language_manager;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
       $container->get('language_manager')
     );
   }

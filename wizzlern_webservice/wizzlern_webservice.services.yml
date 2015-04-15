@@ -2,6 +2,6 @@ services:
   wizzlern_webservice.html_client:
     class: Drupal\wizzlern_webservice\ClientApi\HtmlClientApi
     arguments: ['@http_client']
-  plugin.manager.html_client.html_processor:
+  plugin.manager.html_client.processor:
     class: Drupal\wizzlern_webservice\HtmlProcessorManager
     parent: default_plugin_manager
