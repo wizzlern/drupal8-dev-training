@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.pegi_rating.field_allowed_age
+    - field.field.taxonomy_term.pegi_rating.field_pegi_label
+    - taxonomy.vocabulary.pegi_rating
+  module:
+    - image
+    - text
+id: taxonomy_term.pegi_rating.default
+targetEntityType: taxonomy_term
+bundle: pegi_rating
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_allowed_age:
+    type: number
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_pegi_label:
+    type: image_image
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true

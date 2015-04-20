@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Peri rating'
+vid: pegi_rating
+description: ''
+hierarchy: 0
+weight: 0
