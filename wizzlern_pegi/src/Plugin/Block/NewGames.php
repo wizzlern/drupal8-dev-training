@@ -8,6 +8,7 @@
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormStateInterface;
@@ -113,6 +114,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build() {
     $items = array();
+    $cache_contexts = array();
+    $cache_tags = array();
     $max = $this->configuration['max_items'];
 
     $nids = $this->entityQuery->get('node')
@@ -127,13 +130,30 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     foreach ($nodes as $node) {
       if ($node->access('view')) {
         $items[] = \Drupal::l($node->title->value, $node->urlInfo());
+        $cache_contexts = array_merge($cache_contexts, $node->getCacheContexts());
+        $cache_tags = array_merge($cache_tags, $node->getCacheTags());
       }
     }
 
-    return array(
-      '#theme' => 'item_list',
-      '#items' => $items,
-    );
+    if ($items) {
+      return array(
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#cache' => array(
+          'contexts' => $cache_contexts,
+          'tags' => $cache_tags,
+          'max-age' => 300,
+        ),
+      );
+    }
+    else {
+      return array(
+        '#markup' => $this->t('No game reviews available.'),
+        '#cache' => array(
+          'max-age' => 300,
+        ),
+      );
+    }
 
   }
 }
