@@ -142,15 +142,6 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
         '#cache' => array(
           'contexts' => $cache_contexts,
           'tags' => $cache_tags,
-          'max-age' => 300,
-        ),
-      );
-    }
-    else {
-      return array(
-        '#markup' => $this->t('No game reviews available.'),
-        '#cache' => array(
-          'max-age' => 300,
         ),
       );
     }
