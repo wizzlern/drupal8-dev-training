@@ -6,3 +6,11 @@ wizzlern_pegi.all_games:
     _title: 'Games'
   requirements:
     _permission: 'access content'
+
+wizzlern_pegi.settings:
+  path: '/admin/config/content/wizzlern_pegi'
+  defaults:
+    _form: '\Drupal\wizzlern_pegi\Form\wizzlernPegiSettingsForm'
+    _title: 'Pegi settings'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,5 @@
+wizzlern_pegi.settings:
+  title: Pegi
+  route_name: wizzlern_pegi.settings
+  parent: system.admin_config_content
+  description: 'Settings for Pegi game reviews.'
