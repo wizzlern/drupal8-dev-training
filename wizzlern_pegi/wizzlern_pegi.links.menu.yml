@@ -1,3 +1,10 @@
+wizzlern_pegi.all_games:
+  title: Reviews
+  description: 'Game reviews'
+  route_name: wizzlern_pegi.all_games
+  menu_name: main
+  weight: 1
+
 wizzlern_pegi.settings:
   title: Pegi
   route_name: wizzlern_pegi.settings
