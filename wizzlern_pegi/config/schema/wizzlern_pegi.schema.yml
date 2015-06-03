@@ -1,0 +1,9 @@
+wizzlern_pegi.settings:
+  type: config_object
+  mapping:
+    games_page_title:
+      type: label
+      label: 'Games page title'
+    games_per_page:
+      type: integer
+      label: 'Games per page'

@@ -69,6 +69,9 @@ class WizzlernPegiController extends ControllerBase {
   public function allGames() {
     $items = array();
 
+    // Set the page title.
+    $build['#title'] = $this->config('wizzlern_pegi.settings')->get('games_page_title');
+
     // Load all published games. The pager() method is used to limit the number
     // of results and to prepare the query for paging.
     $nids = $this->entityQuery->get('node')
@@ -88,14 +91,21 @@ class WizzlernPegiController extends ControllerBase {
           ->view($node, 'teaser');
       }
     }
+    if ($items) {
+      $build['games'] = array(
+        '#theme' => 'item_list',
+        '#items' => $items,
+      );
 
-    $build['games'] = array(
-      '#theme' => 'item_list',
-      '#items' => $items,
-    );
-    // Thanks to the pager() method above, it is very easy to add a pager
-    // to the output.
-    $build['pager'] = array('#theme' => 'pager');
+      // Thanks to the pager() method above, it is very easy to add a pager
+      // to the output.
+      $build['pager'] = array('#theme' => 'pager');
+    }
+    else {
+      $build['empty'] = array(
+        '#markup' => ('Bummer, we have no game reviews for you now :('),
+      );
+    }
 
     return $build;
   }

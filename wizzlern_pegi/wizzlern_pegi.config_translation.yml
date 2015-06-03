@@ -1,17 +1,5 @@
-system.site_maintenance_mode:
-  title: 'System maintenance'
-  base_route_name: system.site_maintenance_mode
+wizzlern_pegi.settings:
+  title: 'Pegi settings'
+  base_route_name: wizzlern_pegi.settings
   names:
-    - system.maintenance
-
-system.site_information_settings:
-  title: 'System information'
-  base_route_name: system.site_information_settings
-  names:
-    - system.site
-
-system.rss_feeds_settings:
-  title: 'RSS publishing'
-  base_route_name: system.rss_feeds_settings
-  names:
-    - system.rss
+    - wizzlern_pegi.settings

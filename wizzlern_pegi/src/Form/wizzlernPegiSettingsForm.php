@@ -35,6 +35,12 @@ class wizzlernPegiSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('wizzlern_pegi.settings');
 
+    $form['games_page_title'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Games page title'),
+      '#default_value' => $config->get('games_page_title'),
+    );
+
     $form['games_per_page'] = array(
       '#type' => 'number',
       '#title' => $this->t('Games per page'),
@@ -52,6 +58,7 @@ class wizzlernPegiSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('wizzlern_pegi.settings')
       ->set('games_per_page', $form_state->getValue('games_per_page'))
+      ->set('games_page_title', $form_state->getValue('games_page_title'))
       ->save();
 
     parent::submitForm($form, $form_state);
