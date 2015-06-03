@@ -1,0 +1,8 @@
+name: Wizzlern Pegi Config
+type: module
+description: 'Installable configuration for Wizzlern Pegi module.'
+package: Wizzlern
+dependencies:
+  - wizzlern_pegi
+version: 8.x-1.x
+core: 8.x
