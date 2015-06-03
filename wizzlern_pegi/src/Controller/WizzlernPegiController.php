@@ -103,7 +103,7 @@ class WizzlernPegiController extends ControllerBase {
     }
     else {
       $build['empty'] = array(
-        '#markup' => ('Bummer, we have no game reviews for you now :('),
+        '#markup' => $this->t('Bummer, we have no game reviews for you now :('),
       );
     }
 
