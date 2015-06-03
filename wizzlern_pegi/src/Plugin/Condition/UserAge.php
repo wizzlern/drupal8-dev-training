@@ -105,7 +105,7 @@ class UserAge extends ConditionPluginBase {
     $user = $this->getContextValue('user');
     $user_age = $user->field_user_age->value;
     $term = Term::load($this->configuration['rating']);
-    $allowed_age = $term->field_allowed_age->value;
+    $allowed_age = $term->{WIZZLERN_PEGI_FIELD_ALLOWED_AGE}->value;
 
     switch ($this->configuration['condition']) {
       case '<':
@@ -136,7 +136,7 @@ class UserAge extends ConditionPluginBase {
    */
   public function calculateDependencies() {
     return array(
-      'content' => array('taxonomy:pegi_rating'),
+      'content' => array('taxonomy:' . WIZZLERN_PEGI_TAXONOMY_VOCABULARY),
       'module' => array('taxonomy'),
     );
   }

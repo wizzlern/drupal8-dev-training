@@ -119,7 +119,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     $max = $this->configuration['max_items'];
 
     $nids = $this->entityQuery->get('node')
-      ->condition('type', 'game')
+      ->condition('type', WIZZLERN_PEGI_GAME_CONTENT_TYPE)
       ->condition('status', 1)
       ->range(0, $max)
       ->sort('created', 'DESC')
