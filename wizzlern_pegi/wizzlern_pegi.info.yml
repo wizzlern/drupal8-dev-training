@@ -10,7 +10,8 @@ package: Wizzlern
 version: 8.x-1.x
 # core is required. It must match the drupal core version.
 core: 8.x
+# Route definition of the module's configuration page.
+configure: wizzlern_pegi.settings
 
 # Other frequenty used properties:
 # dependencies: list of modules that this module requires.
-# configure: route definition of the module's configuration page.
