@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\wizzlern_pegi\Controller\WizzlernPegiController.
+ * Contains \Drupal\wizzlern_pegi\Controller\WizzlernPegiGamesPage.
  */
 
 namespace Drupal\wizzlern_pegi\Controller;
@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Returns responses for Wizzlern Pegi module routes.
  */
-class WizzlernPegiController extends ControllerBase {
+class WizzlernPegiGamesPage extends ControllerBase {
 
   /**
    * The entity manager
@@ -61,12 +61,12 @@ class WizzlernPegiController extends ControllerBase {
   }
 
   /**
-   * Content controller callback: All games.
+   * Content controller callback: View games overview page.
    *
    * @return array
    *   Render array of page output.
    */
-  public function allGames() {
+  public function view() {
     $items = array();
 
     // Set the page title.
