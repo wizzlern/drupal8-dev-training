@@ -18,14 +18,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class WizzlernPegiGamesPage extends ControllerBase {
 
   /**
-   * The entity manager
+   * The entity manager.
    *
    * @var EntityManagerInterface
    */
   protected $entityManager;
 
   /**
-   * The entity query manager
+   * The entity query manager.
    *
    * @var QueryFactory
    */
@@ -35,7 +35,9 @@ class WizzlernPegiGamesPage extends ControllerBase {
    * Constructs a content controller.
    *
    * @param EntityManagerInterface $entity_manager
+   *   Entity manager.
    * @param QueryFactory $entity_query
+   *   Entity query factory.
    */
   public function __construct(EntityManagerInterface $entity_manager, QueryFactory $entity_query) {
 

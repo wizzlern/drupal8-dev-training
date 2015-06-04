@@ -81,7 +81,8 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase {
 
     foreach ($this->getEntitiesToView($items) as $delta => $entity) {
       /** @var \Drupal\image\Plugin\Field\FieldType\ImageItem $image */
-      $item = $entity->field_pegi_label[0]; // Hardcoded: field name, one image only.
+      // We assume that only one image is used.
+      $item = $entity->{WIZZLERN_PEGI_FIELD_PEGI_LABEL}[0];
       $url = $entity->url();
       $image_style_setting = $this->getSetting('image_style');
 

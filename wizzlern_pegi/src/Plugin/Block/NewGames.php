@@ -27,14 +27,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * The entity manager
+   * The entity manager.
    *
    * @var \Drupal\Core\Entity\EntityManagerInterface
    */
   protected $entityManager;
 
   /**
-   * The entity query manager
+   * The entity query manager.
    *
    * @var \Drupal\Core\Entity\Query\QueryFactory
    */
@@ -147,4 +147,5 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     }
 
   }
+
 }

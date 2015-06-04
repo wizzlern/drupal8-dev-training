@@ -9,7 +9,7 @@ wizzlern_pegi.all_games:
 wizzlern_pegi.settings:
   path: '/admin/config/content/wizzlern_pegi'
   defaults:
-    _form: '\Drupal\wizzlern_pegi\Form\wizzlernPegiSettingsForm'
+    _form: '\Drupal\wizzlern_pegi\Form\WizzlernPegiSettingsForm'
     _title: 'Pegi settings'
   requirements:
     _permission: 'administer site configuration'

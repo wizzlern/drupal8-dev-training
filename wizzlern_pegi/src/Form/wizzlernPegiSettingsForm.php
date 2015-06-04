@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\wizzlern_pegi\Form\wizzlernPegiSettingsForm.
+ * Contains \Drupal\wizzlern_pegi\Form\WizzlernPegiSettingsForm.
  */
 
 namespace Drupal\wizzlern_pegi\Form;
@@ -13,7 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Displays theme configuration for entire site and individual themes.
  */
-class wizzlernPegiSettingsForm extends ConfigFormBase {
+class WizzlernPegiSettingsForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
@@ -30,7 +30,7 @@ class wizzlernPegiSettingsForm extends ConfigFormBase {
   }
 
   /**
-   * {@inheritdoc}.
+   * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('wizzlern_pegi.settings');
@@ -63,4 +63,5 @@ class wizzlernPegiSettingsForm extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
+
 }

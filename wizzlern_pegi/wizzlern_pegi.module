@@ -25,6 +25,10 @@ define('WIZZLERN_PEGI_FIELD_ALLOWED_AGE', 'field_allowed_age');
  */
 define('WIZZLERN_PEGI_FIELD_USER_AGE', 'field_user_age');
 
+/**
+ * The field that contains the pegi label image.
+ */
+define('WIZZLERN_PEGI_FIELD_PEGI_LABEL', 'field_pegi_label');
 
 use Drupal\Core\Cache\Cache;
 use Drupal\user\Entity\User;
@@ -50,9 +54,9 @@ function wizzlern_pegi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
  * Alters the user login form. Removes the description from the password field.
  */
 function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
   // Note that &$form passes the form array by reference. The changes you to
   // $form you make here will change the actual form.
-
   unset($form['pass']['#description']);
 }
 
@@ -62,9 +66,9 @@ function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\Form
  * Alters the user registration form. Changes the order fields.
  */
 function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
   // The mail and name fields are grouped in 'account'. Adding field to existing
   // field groups like these may have unwanted side effects. Be careful.
-
   $form['account']['mail']['#weight'] = 1;
   $form['account']['name']['#weight'] = 3;
   $form['account']['field_user_age'] = $form['field_user_age'];
@@ -82,9 +86,6 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
  * preferred for edit and delete operations. It allows access check on dynamic
  * data, but performs less for 'view' operations because the entity has to be
  * loaded before access can be checked.
- *
- * @return \Drupal\Core\Access\AccessResultInterface
- *    The access result.
  *
  * @see hook_ENTITY_TYPE_access()
  */

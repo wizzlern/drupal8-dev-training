@@ -80,13 +80,13 @@ class UserAge extends ConditionPluginBase {
       if (!empty($this->configuration['negate'])) {
         return $this->t("The user's age is @condition the @rating rating", array(
           '@condition' => $condition,
-          '@rating' => $rating
+          '@rating' => $rating,
         ));
       }
       else {
         return $this->t("The user's age is not @condition the @rating rating", array(
           '@condition' => $condition,
-          '@rating' => $rating
+          '@rating' => $rating,
         ));
       }
     }
