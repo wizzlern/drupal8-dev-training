@@ -71,9 +71,6 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
    */
   protected $processors = array();
 
-
-  protected $html_processor;
-
   /**
    * {@inheritdoc}
    */
