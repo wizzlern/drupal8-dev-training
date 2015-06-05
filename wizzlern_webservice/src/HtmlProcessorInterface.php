@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains Drupal\wizzlern_webservice\HtmlProcessorInterface
+ * Contains Drupal\wizzlern_webservice\HtmlProcessorInterface.
  */
 
 namespace Drupal\wizzlern_webservice;
@@ -17,6 +17,7 @@ interface HtmlProcessorInterface extends PluginInspectionInterface {
    * Returns the name of the processor.
    *
    * @return string
+   *   The processor name.
    */
   public function getName();
 

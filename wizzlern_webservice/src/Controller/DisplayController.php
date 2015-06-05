@@ -7,6 +7,7 @@
 
 namespace Drupal\wizzlern_webservice\Controller;
 
+use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\wizzlern_webservice\ClientApi\HtmlClientApi;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -30,17 +31,19 @@ class DisplayController extends ControllerBase {
    *
    * @var \Drupal\wizzlern_webservice\HtmlProcessorBase
    */
-  protected $html_processor_plugin_manager;
+  protected $htmlProcessorPluginManager;
 
   /**
-   * Constructs a new BlockController instance.
+   * Constructs a new DisplayController instance.
    *
-   * @param \Drupal\Core\Extension\ThemeHandlerInterface $theme_handler
-   *   The theme handler.
+   * @param \Drupal\wizzlern_webservice\ClientApi\HtmlClientApi $html_client_api
+   *   The HTML client webservice.
+   * @param \Drupal\Component\Plugin\PluginManagerInterface $html_processor_plugin_manager
+   *   The HTML Processor plugin manager.
    */
-  public function __construct(HtmlClientApi $html_client_api, $html_processor_plugin_manager) {
+  public function __construct(HtmlClientApi $html_client_api, PluginManagerInterface $html_processor_plugin_manager) {
     $this->htmlClientApi = $html_client_api;
-    $this->html_processor_plugin_manager = $html_processor_plugin_manager;
+    $this->htmlProcessorPluginManager = $html_processor_plugin_manager;
   }
 
   /**
@@ -59,13 +62,13 @@ class DisplayController extends ControllerBase {
    * @return array
    *   Render array page output.
    */
-  public function ReceivedData() {
+  public function receivedData() {
 
     $items = array();
 
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
     $entities = $this->entityManager()->getStorage('html_client')->loadMultiple();
-    foreach($entities as $entity) {
+    foreach ($entities as $entity) {
 
       // Load HTML data from the endpoint.
       try {
@@ -82,13 +85,20 @@ class DisplayController extends ControllerBase {
 
         // Load and execute HTML processor plugin.
         /** @var \Drupal\wizzlern_webservice\Plugin\HtmlProcessor\HtmlH1Processor $processor */
-        $processor = $this->html_processor_plugin_manager->createInstance($plugin_id);
+        $processor = $this->htmlProcessorPluginManager->createInstance($plugin_id);
         $result = $processor->setDom($dom)->process();
         if ($result) {
-          $items[] = $this->t('@label of %name: @result', array('@label' => $processor->getName(), '%name' => $entity->label(), '@result' => $result));
+          $items[] = $this->t('@label of %name: @result', array(
+            '@label' => $processor->getName(),
+            '%name' => $entity->label(),
+            '@result' => $result,
+          ));
         }
         else {
-          $items[] = $this->t('No @label found for %name', array('@label' => $processor->getName(), '%name' => $entity->label()));
+          $items[] = $this->t('No @label found for %name', array(
+            '@label' => $processor->getName(),
+            '%name' => $entity->label(),
+          ));
         }
       }
     }

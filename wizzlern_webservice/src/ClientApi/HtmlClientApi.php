@@ -12,7 +12,7 @@ use GuzzleHttp\Exception\RequestException;
 use SimpleHtmlDom\simple_html_dom;
 
 /**
- * Fetches project information from remote locations.
+ * Fetches HTML data from remote locations.
  */
 class HtmlClientApi implements HtmlClientApiInterface {
 
@@ -24,6 +24,8 @@ class HtmlClientApi implements HtmlClientApiInterface {
   protected $httpClient;
 
   /**
+   * Instantiates this client class.
+   *
    * @param \GuzzleHttp\ClientInterface $http_client
    *   A Guzzle client object.
    */
@@ -34,8 +36,10 @@ class HtmlClientApi implements HtmlClientApiInterface {
   /**
    * {@inheritdoc}
    *
-   * @throws \LogicException When the handler does not populate a response
-   * @throws RequestException When an error is encountered
+   * @throws \LogicException
+   *   When the handler does not populate a response.
+   * @throws RequestException
+   *   When an error is encountered.
    */
   public function loadDom($url) {
 

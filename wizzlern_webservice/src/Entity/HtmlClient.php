@@ -74,7 +74,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   /**
    * {@inheritdoc}
    */
-  function getEndpointUrl() {
+  public function getEndpointUrl() {
     return $this->endpoint_url;
   }
 
@@ -82,7 +82,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   /**
    * {@inheritdoc}
    */
-  function getAllProcessors() {
+  public function getAllProcessors() {
     $options = array();
 
     $processors = \Drupal::getContainer()->get('plugin.manager.html_client.processor')->getDefinitions();
@@ -96,7 +96,8 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   /**
    * {@inheritdoc}
    */
-  function getProcessors() {
+  public function getProcessors() {
     return array_filter($this->processors);
   }
+
 }

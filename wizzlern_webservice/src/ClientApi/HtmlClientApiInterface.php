@@ -23,7 +23,8 @@ interface HtmlClientApiInterface {
    * @return simple_html_dom_node
    *   DOM node object containing the web page content.
    *
-   * @throws \Exception when the operation failed.
+   * @throws \Exception
+   *   When the operation failed.
    */
   public function loadDom($url);
 

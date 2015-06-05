@@ -1,7 +1,7 @@
 wizzlern_webservice.received_data:
   path: '/wizzlern_webservice/data'
   defaults:
-    _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::ReceivedData'
+    _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::receivedData'
     _title: 'Received Data'
   requirements:
     _permission: 'access content'

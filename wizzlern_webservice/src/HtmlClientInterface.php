@@ -18,8 +18,9 @@ interface HtmlClientInterface extends ConfigEntityInterface {
    * Returns endpoint URL.
    *
    * @return string
+   *   The URL of the webservice endpoint.
    */
-  function getEndpointUrl();
+  public function getEndpointUrl();
 
   /**
    * Returns available data processors.
@@ -27,7 +28,7 @@ interface HtmlClientInterface extends ConfigEntityInterface {
    * @return array
    *   Array of data processor names, keyed by processor machine name.
    */
-  function getAllProcessors();
+  public function getAllProcessors();
 
   /**
    * Returns selected data processors.
@@ -35,5 +36,6 @@ interface HtmlClientInterface extends ConfigEntityInterface {
    * @return array
    *   Array of processor machine names.
    */
-  function getProcessors();
+  public function getProcessors();
+
 }

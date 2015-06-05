@@ -32,11 +32,15 @@ class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactor
    * Constructs the HtmlLanguageProcessor object.
    *
    * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
    * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
+   *   The plugin implementation definition.
    * @param \Drupal\Core\Language\LanguageManager $language_manager
+   *   The language manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, $language_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, LanguageManager $language_manager) {
     $this->languageManager = $language_manager;
   }
 
@@ -53,12 +57,14 @@ class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactor
   }
 
   /**
-   * Returns the content of the h1 tag.
+   * Returns the content of the language tag.
    *
    * @return string
+   *   The language name.
    */
-  function process() {
+  public function process() {
     $node = $this->DOMObject->find('html', 0);
     return $this->languageManager->getLanguageName($node->lang);
   }
+
 }

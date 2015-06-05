@@ -27,9 +27,10 @@ class HtmlProcessorManager extends DefaultPluginManager {
    *   The module handler to invoke the alter hook with.
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
-      parent::__construct('Plugin/HtmlProcessor', $namespaces, $module_handler, 'Drupal\wizzlern_webservice\HtmlProcessorInterface', 'Drupal\wizzlern_webservice\Annotation\HtmlProcessor');
+    parent::__construct('Plugin/HtmlProcessor', $namespaces, $module_handler, 'Drupal\wizzlern_webservice\HtmlProcessorInterface', 'Drupal\wizzlern_webservice\Annotation\HtmlProcessor');
 
     $this->alterInfo('wizzlern_webservice_html_processor');
     $this->setCacheBackend($cache_backend, 'wizzlern_webservice_html_processor');
   }
+
 }
