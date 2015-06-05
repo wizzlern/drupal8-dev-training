@@ -6,6 +6,7 @@
  */
 
 // Register autoloading of vendor libraries.
-if (file_exists('vendor/autoload.php')) {
-  require 'vendor/autoload.php';
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoload)) {
+  require_once $autoload;
 }
