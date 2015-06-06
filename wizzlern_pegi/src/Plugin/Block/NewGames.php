@@ -77,7 +77,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   }
 
   /**
-   * Overrides \Drupal\block\BlockBase::defaultConfiguration().
+   * {@inheritdoc}
    */
   public function defaultConfiguration() {
 
@@ -87,7 +87,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   }
 
   /**
-   * Overrides \Drupal\block\BlockBase::blockForm().
+   * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
 
@@ -110,7 +110,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   }
 
   /**
-   * Implements \Drupal\block\BlockBase::blockBuild().
+   * {@inheritdoc}
    */
   public function build() {
     $items = array();
@@ -143,6 +143,11 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
           'contexts' => $cache_contexts,
           'tags' => $cache_tags,
         ),
+      );
+    }
+    else {
+      return array(
+        '#markup' => $this->t('Bummer, no game reviews.')
       );
     }
 
