@@ -100,9 +100,14 @@ class WizzlernPegiController extends ControllerBase {
         '#items' => $items,
       );
 
-      // Thanks to the pager() method above, it is very easy to add a pager
-      // to the output.
-      $build['pager'] = array('#theme' => 'pager');
+      // Add a pager to the output.
+      $build['pager'] = array(
+        '#theme' => 'pager',
+        '#element' => 0,
+        '#parameters' => [],
+        '#quantity' => 4,
+        '#tags' => [],
+      );
     }
     else {
       $build['empty'] = array(
