@@ -70,9 +70,10 @@ class WizzlernPegiController extends ControllerBase {
    */
   public function gamesOverview() {
     $items = array();
+    $config = $this->config('wizzlern_pegi.settings');
 
     // Set the page title.
-    $build['#title'] = $this->config('wizzlern_pegi.settings')->get('games_page_title');
+    $build['#title'] = $config->get('games_page_title');
 
     // Load all published games. The pager() method is used to limit the number
     // of results and to prepare the query for paging.
@@ -80,7 +81,7 @@ class WizzlernPegiController extends ControllerBase {
       ->condition('type', 'game')
       ->condition('status', 1)
       ->sort('created', 'DESC')
-      ->pager(5)
+      ->pager($config->get('games_per_page'))
       ->execute();
     $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
 
