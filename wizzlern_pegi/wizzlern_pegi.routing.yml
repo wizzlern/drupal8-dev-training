@@ -1,4 +1,4 @@
-wizzlern_pegi.all_games:
+wizzlern_pegi.games_overview:
   path: '/games'
   defaults:
     _controller: '\Drupal\wizzlern_pegi\Controller\WizzlernPegiController::gamesOverview'

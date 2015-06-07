@@ -1,7 +1,7 @@
-wizzlern_pegi.all_games:
-  title: Reviews
+wizzlern_pegi.games_overview:
+  title: 'Games'
   description: 'Game reviews'
-  route_name: wizzlern_pegi.all_games
+  route_name: wizzlern_pegi.games_overview
   menu_name: main
   weight: 1
 

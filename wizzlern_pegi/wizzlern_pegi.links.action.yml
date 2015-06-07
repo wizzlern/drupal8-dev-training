@@ -3,4 +3,4 @@ wizzlern_pegi.add_review:
   route_parameters: { node_type: 'game' }
   title: 'Add Game Review'
   appears_on:
-    - wizzlern_pegi.all_games
+    - wizzlern_pegi.games_overview
