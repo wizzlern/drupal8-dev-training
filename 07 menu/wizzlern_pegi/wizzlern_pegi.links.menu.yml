@@ -1,0 +1,13 @@
+#
+# Contains exercises for menu links.
+#
+
+# ==== Step 1 ====
+# Create a menu link to the games review page.
+# - Find examples of menu links in core.
+# - Create a menu link in the main menu that links to the games review page.
+# - Make sure it is placed right of the 'Home' link.
+# - Clear the cache and check the result.
+
+wizzlern_pegi.games_overview:
+  ...

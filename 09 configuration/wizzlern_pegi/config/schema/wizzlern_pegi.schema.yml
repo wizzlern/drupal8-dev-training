@@ -1,0 +1,26 @@
+#
+# Contains exercises for the configuration schema.
+#
+
+# ==== Step 1 (optional) ====
+# Add a configuration value for the games overview page title.
+# - Add a text field for the page title to the configuration form
+#   \Drupal\wizzlern_pegi\Form\WizzlernPegiSettingsForm
+# - Update the other form methods and the default value for this configuration.
+# - Apply the page title to the games page.
+# - Check the result.
+
+# ==== Step 2 (optional) ====
+# Create the schema for the wizzlern_pegi configuration.
+# - Find examples in core of configuration schema files.
+# - Check out the documentation at https://www.drupal.org/node/1905070
+# - Create a schema file for the wizzlern_pegi configuration.
+# - Check the configuration using the Configuration inspector module
+#   https://www.drupal.org/project/config_inspector.
+
+# ==== Step 3 (optional) ====
+# Translate the games page title.
+# - Enable the following modules: Language, Configuration Translation
+# - Add a second language, for example Dutch.
+# - Translate the page title configuration
+# - Check the result on the Dutch Games page.
