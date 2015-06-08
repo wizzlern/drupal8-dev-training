@@ -13,7 +13,7 @@ use Drupal\Core\Field\Plugin\Field\FieldFormatter\EntityReferenceFormatterBase;
 use Drupal\Core\Url;
 
 /**
- * Plugin implementation of the 'entity reference label' formatter.
+ * Plugin implementation of the 'pegi reference label' formatter.
  *
  * @FieldFormatter(
  *   id = "wizzlern_pegi_reference_link",

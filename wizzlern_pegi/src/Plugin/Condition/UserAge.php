@@ -167,6 +167,7 @@ class UserAge extends ConditionPluginBase {
   protected function pegiRatings() {
     $ratings = array();
 
+    // @todo Use DI
     $tids = \Drupal::service('entity.query')->get('taxonomy_term')
       ->condition('vid', 'pegi_rating')
       ->sort('weight', 'ASC')
