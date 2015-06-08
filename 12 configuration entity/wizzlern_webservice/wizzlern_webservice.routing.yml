@@ -1,0 +1,33 @@
+# HtmlClient routing definition
+entity.html_client.collection:
+  path: '/admin/config/system/html_client'
+  defaults:
+    _entity_list: 'html_client'
+    _title: 'HtmlClient Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.html_client.add_form:
+  path: '/admin/config/system/html_client/add'
+  defaults:
+    _entity_form: 'html_client.add'
+    _title: 'Add HtmlClient'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.html_client.edit_form:
+  path: '/admin/config/system/html_client/{html_client}'
+  defaults:
+    _entity_form: 'html_client.edit'
+    _title: 'Edit HtmlClient'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.html_client.delete_form:
+  path: '/admin/config/system/html_client/{html_client}/delete'
+  defaults:
+    _entity_form: 'html_client.delete'
+    _title: 'Delete HtmlClient'
+  requirements:
+    _permission: 'administer site configuration'
+

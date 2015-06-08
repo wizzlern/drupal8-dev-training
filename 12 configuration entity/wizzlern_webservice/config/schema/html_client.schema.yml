@@ -1,0 +1,12 @@
+  wizzlern_webservice.html_client.*:
+  type: config_entity
+  label: 'HtmlClient config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

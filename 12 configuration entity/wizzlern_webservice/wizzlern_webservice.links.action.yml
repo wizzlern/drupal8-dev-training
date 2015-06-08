@@ -1,0 +1,6 @@
+entity.html_client.add_form:
+  route_name: 'entity.html_client.add_form'
+  title: 'Add HtmlClient'
+  appears_on:
+    - entity.html_client.collection
+
