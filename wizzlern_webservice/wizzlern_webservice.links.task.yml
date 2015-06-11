@@ -1,0 +1,9 @@
+entity.html_client.collection:
+  title: 'List'
+  route_name: entity.html_client.collection
+  base_route: entity.html_client.collection
+
+wizzlern_webservice.html_client.data:
+  title: 'Received data'
+  route_name: wizzlern_webservice.html_client.data
+  base_route: entity.html_client.collection

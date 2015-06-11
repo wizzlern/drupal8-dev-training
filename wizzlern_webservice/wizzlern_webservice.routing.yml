@@ -1,16 +1,8 @@
-wizzlern_webservice.received_data:
-  path: '/wizzlern_webservice/data'
-  defaults:
-    _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::receivedData'
-    _title: 'Received Data'
-  requirements:
-    _permission: 'access content'
-
 entity.html_client.collection:
   path: '/admin/config/services/wizzlern_webservice'
   defaults:
     _entity_list: 'html_client'
-    _title: 'Wizzlern webservice configuration'
+    _title: 'Wizzlern webservice'
   requirements:
     _permission: 'administer wizzlern webservice'
 
@@ -35,6 +27,14 @@ entity.html_client.delete_form:
   defaults:
     _entity_form: 'html_client.delete'
     _title: 'Delete webservice'
+  requirements:
+    _permission: 'administer wizzlern webservice'
+
+wizzlern_webservice.html_client.data:
+  path: '/admin/config/services/wizzlern_webservice/data'
+  defaults:
+    _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::receivedData'
+    _title: 'Received Data'
   requirements:
     _permission: 'administer wizzlern webservice'
 

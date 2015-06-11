@@ -1,0 +1,6 @@
+wizzlern_webservice.entity.html_client:
+  title: 'Wizzlern webservice'
+  description: 'Configure the Wizzlern webservices.'
+  route_name: entity.html_client.collection
+  parent: system.admin_config_services
+
