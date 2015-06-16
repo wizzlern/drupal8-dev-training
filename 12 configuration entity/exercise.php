@@ -2,6 +2,7 @@
 
 /**
  * Contains exercises for a custom configuration entity.
+ * Estimated time: 75 min.
  */
 
 // ==== Step 1 ====

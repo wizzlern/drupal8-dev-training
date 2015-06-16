@@ -9,6 +9,9 @@ namespace Drupal\wizzlern_pegi\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
+// Exercises to create a custom block with a list of items.
+// Estimated time: 30 min.
+
 // ==== Step 1 ====
 // Load Game review nodes and output links to the nodes.
 // - Use an entity query to load all published game reviews.

@@ -2,7 +2,10 @@
 
 /**
  * Contains exercises for menu links.
+ * Estimated time: 15 min.
  */
+
+
 
 // ==== Step 1 ====
 // @see wizzlern_pegi.links.menu.yml

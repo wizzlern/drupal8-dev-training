@@ -10,6 +10,9 @@ namespace Drupal\wizzlern_pegi\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+// Exercises with configuration and configuration forms.
+// Estimated time: 45 min.
+
 // ==== Step 1 ====
 // Create a configuration form for the maximum number of reviews to be shown on
 // the games overview page.

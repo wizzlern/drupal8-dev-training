@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Contains exercises for \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
+ * Contains exercises to create a custom block with recent game reviews.
+ * Estimated time: 45 min.
  */
 
 // ==== Step 1 ====
 // Load Game review nodes and output links to the nodes.
+// - Use the custom block code \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
 // - Use an entity query to load the 5 most recent game reviews.
 // - Use the node title and url of the node to build links.
 // - Return an list of links in the build() method.

@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Contains exercises for \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
+ * Contains exercises with a custom block of recent game reviews.
+ * Estimated time: 45 min.
  */
 
 // ==== Step 1 ====
 // Add cache tags to the block output.
+// - Use the custom block code \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
 // - Determine when the block cache must be invalidated.
 // - Add the node cache tags to the block render array.
 // - Check if a changed node title is visible in the block.

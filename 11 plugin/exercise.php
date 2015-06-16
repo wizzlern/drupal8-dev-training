@@ -1,7 +1,8 @@
 <?php
 
 /**
- *  Contains exercises for the Pegi field formatter plugin.
+ * Contains exercises for the Pegi field formatter plugin.
+ * Estimated time: 45 min.
  */
 
 // ==== Step 1 ====

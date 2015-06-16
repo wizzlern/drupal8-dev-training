@@ -9,8 +9,11 @@ namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
+// Exercises to create a custom block with a list of items.
+// Estimated time: 30 min.
+
 // ==== Step 1 ====
-// Set-up the @Block annotation.
+// Set up the @Block annotation.
 // - Find a block class in core that can be used as an example.
 // - Determine the interfaces that are implemented by BlockBase.
 // - Use the documentation sources provided in the presentation slide.

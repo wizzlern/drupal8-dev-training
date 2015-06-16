@@ -2,6 +2,7 @@
 
 /**
  * Contains exercises for \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
+ * Estimated time: 30 min.
  */
 
 // ==== Step 1 ====
