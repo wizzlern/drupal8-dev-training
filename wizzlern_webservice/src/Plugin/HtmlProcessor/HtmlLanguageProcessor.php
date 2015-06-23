@@ -41,6 +41,7 @@ class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactor
    *   The language manager.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, LanguageManager $language_manager) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->languageManager = $language_manager;
   }
 
