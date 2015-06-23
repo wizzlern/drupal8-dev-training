@@ -5,6 +5,10 @@
  * Estimated time: 120 minutes.
  */
 
+// ==== User story ====
+// As a site administrator I want to extract the following data from the HTML
+// DOM: Processor meta tag, H1 tag, Page language.
+
 // ==== Step 1 ====
 // Create the first plugin
 // - Determine the scope and the functionality of the plugin.
@@ -31,3 +35,9 @@
 // Show the processed data per endpoint on the diagnostic page.
 // - Modify the diagnostic page to show the HTML data extracted by each of the
 //   plugins and all webservices.
+
+// ==== Step 4 (optional) ====
+// Show the page language in a readable format (e.g. "Dutch")
+// - Drupal core has English and native names of languages. Determine where.
+// - Use Dependency Injection to load this service.
+// - Return a translated readable language name.

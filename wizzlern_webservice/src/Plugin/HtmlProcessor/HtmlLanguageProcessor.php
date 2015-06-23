@@ -8,6 +8,7 @@ namespace Drupal\wizzlern_webservice\Plugin\HtmlProcessor;
 
 use Drupal\Core\Language\LanguageManager;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\wizzlern_webservice\HtmlProcessorBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -15,11 +16,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Provides an HTML language property processor.
  *
  * @HtmlProcessor(
- *   id = "language",
+ *   id = "html_lang",
  *   label = @Translation("Page language"),
  * )
  */
 class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactoryPluginInterface {
+
+  use StringTranslationTrait;
 
   /**
    * Language manager.
@@ -58,14 +61,15 @@ class HtmlLanguageProcessor extends HtmlProcessorBase implements ContainerFactor
   }
 
   /**
-   * Returns the content of the language tag.
+   * Returns the translated language name taken from the lang property.
    *
    * @return string
    *   The language name.
    */
   public function process() {
     $node = $this->DOMObject->find('html', 0);
-    return $this->languageManager->getLanguageName($node->lang);
+    $languages = $this->languageManager->getStandardLanguageList();
+    return $this->t($languages[$node->lang][0]);
   }
 
 }
