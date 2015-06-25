@@ -7,3 +7,10 @@ wizzlern_pegi.settings:
     games_per_page:
       type: integer
       label: 'Games per page'
+
+block.settings.wizzlern_pegi_new_games:
+  type: block_settings
+  mapping:
+    max_items:
+      type: integer
+      label: 'Number of games'
