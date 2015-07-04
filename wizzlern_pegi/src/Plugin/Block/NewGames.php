@@ -129,7 +129,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
       if ($node->access('view')) {
-        $items[] = \Drupal::l($node->title->value, $node->urlInfo());
+        $items[] = $node->link();
         $cache_contexts = array_merge($cache_contexts, $node->getCacheContexts());
         $cache_tags = array_merge($cache_tags, $node->getCacheTags());
       }
