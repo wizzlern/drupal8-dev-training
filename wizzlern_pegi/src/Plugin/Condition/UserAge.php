@@ -9,7 +9,6 @@ namespace Drupal\wizzlern_pegi\Plugin\Condition;
 
 use Drupal\Core\Condition\ConditionPluginBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Plugin\Context\ContextDefinition;
 use Drupal\taxonomy\Entity\Term;
 
 /**
