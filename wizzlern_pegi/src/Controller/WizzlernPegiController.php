@@ -10,6 +10,7 @@ namespace Drupal\wizzlern_pegi\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Entity\Query\QueryFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -39,7 +40,7 @@ class WizzlernPegiController extends ControllerBase {
    * @param QueryFactory $entity_query
    *   Entity query factory.
    */
-  public function __construct(EntityManagerInterface $entity_manager, QueryFactory $entity_query) {
+  public function __construct(EntityManagerInterface $entity_manager, QueryFactoryInterface $entity_query) {
 
     $this->entityManager = $entity_manager;
     $this->entityQuery = $entity_query;
