@@ -1,12 +1,3 @@
-entity.html_client.collection:
-  title: 'List'
-  route_name: entity.html_client.collection
-  base_route: entity.html_client.collection
-
-wizzlern_webservice.html_client.data:
-  title: 'Received data'
-  route_name: wizzlern_webservice.html_client.data
-  base_route: entity.html_client.collection
 # DomFragments routing definition
 dom_fragments.settings_tab:
   route_name: dom_fragments.settings
@@ -27,4 +18,3 @@ entity.dom_fragments.delete_form:
   route_name:  entity.dom_fragments.delete_form
   base_route:  entity.dom_fragments.canonical
   title: Delete
-

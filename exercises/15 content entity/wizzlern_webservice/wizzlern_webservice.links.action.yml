@@ -1,13 +1,6 @@
-entity.html_client.add_form:
-  route_name: 'entity.html_client.add_form'
-  title: 'Add webservice'
-  appears_on:
-    - entity.html_client.collection
-
 entity.dom_fragments.add_form:
   route_name: entity.dom_fragments.add_form
   title: 'Add DomFragments'
   appears_on:
     - entity.dom_fragments.collection
     - entity.dom_fragments.canonical
-

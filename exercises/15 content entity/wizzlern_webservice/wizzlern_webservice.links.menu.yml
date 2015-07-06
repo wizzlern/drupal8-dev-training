@@ -1,9 +1,3 @@
-wizzlern_webservice.entity.html_client:
-  title: 'Wizzlern webservice'
-  description: 'Configure the Wizzlern webservices.'
-  route_name: entity.html_client.collection
-  parent: system.admin_config_services
-
 # DomFragments menu items definition
 entity.dom_fragments.collection:
   title: 'DomFragments: Listing'
@@ -15,4 +9,3 @@ dom_fragments.admin.structure.settings:
   description: 'Configure DomFragments entity'
   route_name:  dom_fragments.settings
   parent: system.admin_structure
-
