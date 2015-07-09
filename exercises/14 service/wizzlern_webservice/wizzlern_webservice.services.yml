@@ -1,0 +1,3 @@
+services:
+  wizzlern_webservice.html_client:
+    # see exercise.php
