@@ -16,7 +16,7 @@ use Drupal\user\EntityOwnerInterface;
  *
  * @ingroup wizzlern_webservice
  */
-interface DomFragmentsInterface extends ContentEntityInterface, EntityOwnerInterface {
+interface DomFragmentsInterface extends ContentEntityInterface {
   // Add get/set methods for your configuration properties here.
 
 }

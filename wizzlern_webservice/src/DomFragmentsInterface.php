@@ -16,7 +16,14 @@ use Drupal\user\EntityOwnerInterface;
  *
  * @ingroup wizzlern_webservice
  */
-interface DomFragmentsInterface extends ContentEntityInterface, EntityOwnerInterface {
-  // Add get/set methods for your configuration properties here.
+interface DomFragmentsInterface extends ContentEntityInterface {
+
+  /**
+   * Gets the entity creation timestamp.
+   *
+   * @return int
+   *   Creation timestamp of the entity.
+   */
+  public function getCreatedTime();
 
 }
