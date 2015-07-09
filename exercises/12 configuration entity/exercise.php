@@ -14,7 +14,7 @@
 // webservice client.
 // - Use the Console module (https://www.drupal.org/project/console) to create a
 //   configuration entity.
-//   - console generate:entity:config
+//   - $ console generate:entity:config
 //   - Class name: HtmlClient
 //   - Entity name: html_client
 //   Alternatively copy the files from wizzlern_webservice/* in this directory.
