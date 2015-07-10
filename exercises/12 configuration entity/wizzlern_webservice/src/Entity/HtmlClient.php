@@ -32,9 +32,9 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "edit-form" = "entity.html_client.edit_form",
- *     "delete-form" = "entity.html_client.delete_form",
- *     "collection" = "entity.html_client.collection"
+ *     "edit-form" = "/admin/config/services/wizzlern_webservice/{html_client}",
+ *     "delete-form" = "/admin/config/services/wizzlern_webservice/{html_client}/delete",
+ *     "collection" = "/admin/config/services/wizzlern_webservice"
  *   }
  * )
  */
