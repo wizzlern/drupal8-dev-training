@@ -84,7 +84,7 @@ class DisplayController extends ControllerBase {
       foreach ($entity->getProcessors() as $plugin_id) {
 
         // Load and execute HTML processor plugin.
-        /** @var \Drupal\wizzlern_webservice\Plugin\HtmlProcessor\HtmlH1Processor $processor */
+        /** @var \Drupal\wizzlern_webservice\HtmlProcessorInterface $processor */
         $processor = $this->htmlProcessorPluginManager->createInstance($plugin_id);
         $result = $processor->setDom($dom)->process();
         if ($result) {
