@@ -101,17 +101,13 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase {
           'tags' => $cache_tags,
         ),
       );
-      $link = array(
-        '#type' => 'link',
-        '#title' => $this->t('All games with this rating'),
-        '#url' => Url::fromUserInput($url),
-      );
+
       $elements[] = array(
         '#type' => 'inline_template',
         '#template' => '{{ image }}<span class="pegi-link-all">{{ link }}</span>',
         '#context' => array(
           'image' => $image,
-          'link' => $link,
+          'link' => $entity->link($this->t('All games with this rating')),
         ),
       );
     }
