@@ -25,6 +25,13 @@ abstract class HtmlProcessorBase extends PluginBase implements HtmlProcessorInte
   /**
    * {@inheritdoc}
    */
+  public function getId() {
+    return $this->pluginDefinition['id'];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getName() {
     return $this->pluginDefinition['label'];
   }

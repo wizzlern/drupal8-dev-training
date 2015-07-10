@@ -14,6 +14,14 @@ use Drupal\Component\Plugin\PluginInspectionInterface;
 interface HtmlProcessorInterface extends PluginInspectionInterface {
 
   /**
+   * Returns the id of the processor.
+   *
+   * @return string
+   *   The machine readable name.
+   */
+  public function getId();
+
+  /**
    * Returns the name of the processor.
    *
    * @return string

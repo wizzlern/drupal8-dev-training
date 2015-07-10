@@ -12,7 +12,7 @@ use Drupal\wizzlern_webservice\HtmlProcessorBase;
  * Provides an HTML Generator meta tag processor.
  *
  * @HtmlProcessor(
- *   id = "generator",
+ *   id = "html_generator",
  *   label = @Translation("Generator"),
  * )
  */

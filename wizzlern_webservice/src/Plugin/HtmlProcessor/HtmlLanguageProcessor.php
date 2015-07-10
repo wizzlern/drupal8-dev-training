@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Provides an HTML language property processor.
  *
  * @HtmlProcessor(
- *   id = "html_lang",
+ *   id = "html_language",
  *   label = @Translation("Page language"),
  * )
  */

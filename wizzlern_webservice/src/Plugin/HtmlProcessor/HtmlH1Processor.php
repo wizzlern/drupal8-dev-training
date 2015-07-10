@@ -12,7 +12,7 @@ use Drupal\wizzlern_webservice\HtmlProcessorBase;
  * Provides an HTML H1 tag processor.
  *
  * @HtmlProcessor(
- *   id = "h1",
+ *   id = "html_h1",
  *   label = @Translation("H1 title"),
  * )
  */
