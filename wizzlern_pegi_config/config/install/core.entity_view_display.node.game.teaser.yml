@@ -17,11 +17,16 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
-  links:
-    weight: 100
+  field__ref_pegi:
+    type: entity_reference_label
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
 hidden:
-  field__ref_pegi: true
+  links: true
