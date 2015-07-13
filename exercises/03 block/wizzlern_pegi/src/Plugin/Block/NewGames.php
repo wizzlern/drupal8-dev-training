@@ -5,10 +5,6 @@
  * Contains \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
  */
 
-namespace Drupal\wizzlern_pegi\Plugin\Block;
-
-use Drupal\Core\Block\BlockBase;
-
 // Exercises to create a custom block with a list of items.
 // Estimated time: 30 min.
 
@@ -23,6 +19,10 @@ use Drupal\Core\Block\BlockBase;
 // Implement the build() method and enable the block.
 // - Return an item list (Render Array) with dummy content.
 // - Place the block in the sidebar and check the result.
+
+namespace Drupal\wizzlern_pegi\Plugin\Block;
+
+use Drupal\Core\Block\BlockBase;
 
 /**
  * Provides a recent games block.
