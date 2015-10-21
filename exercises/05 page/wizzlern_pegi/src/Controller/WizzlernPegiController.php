@@ -9,10 +9,17 @@ namespace Drupal\wizzlern_pegi\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-// Exercises to create a custom block with a list of items.
+// Exercises to create a custom page with a list Game teasers.
 // Estimated time: 30 min.
 
 // ==== Step 1 ====
+// Create routing for the page.
+// - Find in core an example of a page route.
+// - Create a routing.yml file for WizzlernPegiController::gamesOverview.
+//   using the URL '/games' and page title 'Games'.
+// - Access to the page requires the permission to access content.
+
+// ==== Step 2 ====
 // Load Game review nodes and output links to the nodes.
 // - Use an entity query to load all published game reviews.
 // - Build the nodes in teaser view.
@@ -20,7 +27,7 @@ use Drupal\Core\Controller\ControllerBase;
 // - Also provide an empty text if no games are present.
 // - Create or generate game review nodes and check the result.
 
-// ==== Step 2 (optional) ====
+// ==== Step 3 (optional) ====
 // Add a pager to the output list.
 // - Find in core examples how to add a pager to the output.
 // - Apply the pager with 5 items per page.
