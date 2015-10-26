@@ -10,10 +10,12 @@
 
 // ==== Step 1 ====
 // Set up the @Block annotation.
-// - Find a block class in core that can be used as an example.
+// - Find a block class in core that can be used as an example. (But not in the
+//   Block module).
 // - Determine the interfaces that are implemented by BlockBase.
-// - Use the documentation sources provided in the presentation slide.
-// - Annotation keys are documented in: \Drupal\Core\Block\Annotation\Block
+// - Complete the @Block annotation below.
+//   - Use the documentation sources provided in the presentation slide.
+//   - Annotation keys are documented in: \Drupal\Core\Block\Annotation\Block.
 
 // ==== Step 2 ====
 // Implement the build() method and enable the block.

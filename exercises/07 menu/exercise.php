@@ -2,7 +2,7 @@
 
 /**
  * Contains exercises for menu links.
- * Estimated time: 15 min.
+ * Estimated time: 10 min.
  */
 
 // ==== Step 1 ====
