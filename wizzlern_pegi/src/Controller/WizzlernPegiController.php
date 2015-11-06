@@ -8,7 +8,7 @@
 namespace Drupal\wizzlern_pegi\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\EntityManagerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Entity\Query\QueryFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -19,11 +19,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class WizzlernPegiController extends ControllerBase {
 
   /**
-   * The entity manager.
+   * The type entity manager.
    *
-   * @var EntityManagerInterface
+   * @var EntityTypeManagerInterface
    */
-  protected $entityManager;
+  protected $entityTypeManager;
 
   /**
    * The entity query manager.
@@ -35,30 +35,30 @@ class WizzlernPegiController extends ControllerBase {
   /**
    * Constructs a content controller.
    *
-   * @param EntityManagerInterface $entity_manager
+   * @param EntityTypeManagerInterface $entity_type_manager
    *   Entity manager.
    * @param QueryFactory $entity_query
    *   Entity query factory.
    */
-  public function __construct(EntityManagerInterface $entity_manager, QueryFactoryInterface $entity_query) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactoryInterface $entity_query) {
 
-    $this->entityManager = $entity_manager;
+    $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
   }
 
   /**
    * {@inheritdoc}
    *
-   * This class requires entity.manager and entity.query services, but they are
-   * not available in the the controller base class. The create() method is used
-   * to instantiate the controller with the required services. Pointers to the
-   * services are passed on to the class constructor where they are stored in
-   * the class for further use.
+   * This class requires entity_type.manager and entity.query services, but they
+   * are not available in the the controller base class. The create() method is
+   * used to instantiate the controller with the required services. Pointers to
+   * the services are passed on to the class constructor where they are stored
+   * in the class for further use.
    */
   public static function create(ContainerInterface $container) {
 
     return new static(
-      $container->get('entity.manager'),
+      $container->get('entity_type.manager'),
       $container->get('entity.query')
     );
   }
@@ -84,7 +84,7 @@ class WizzlernPegiController extends ControllerBase {
       ->sort('created', 'DESC')
       ->pager($config->get('games_per_page'))
       ->execute();
-    $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
+    $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($nids);
 
     // Build a list of node teasers. The EntityViewBuilder and NodeViewBuilder
     // classes have several methods to build the output render array.
@@ -92,7 +92,7 @@ class WizzlernPegiController extends ControllerBase {
     foreach ($nodes as $nid => $node) {
       // @todo remove this form of access control.
       if ($node->access('view')) {
-        $items[$nid] = $this->entityManager->getViewBuilder('node')
+        $items[$nid] = $this->entityTypeManager->getViewBuilder('node')
           ->view($node, 'teaser');
       }
     }

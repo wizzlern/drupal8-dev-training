@@ -27,11 +27,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * The entity manager.
+   * The entity type manager.
    *
    * @var \Drupal\Core\Entity\EntityManagerInterface
    */
-  protected $entityManager;
+  protected $entityTypeManager;
 
   /**
    * The entity query manager.
@@ -52,15 +52,15 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
+   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_type_manager
    *   Entity manager service.
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
    *   Entity query manager service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_manager, QueryFactory $entity_query) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_type_manager, QueryFactory $entity_query) {
 
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->entityManager = $entity_manager;
+    $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
   }
 
@@ -73,7 +73,10 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
 
-    return new static($configuration, $plugin_id, $plugin_definition, $container->get('entity.manager'), $container->get('entity.query'));
+    return new static($configuration, $plugin_id, $plugin_definition,
+      $container->get('entity_type.manager'),
+      $container->get('entity.query')
+    );
   }
 
   /**
@@ -124,7 +127,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
       ->range(0, $max)
       ->sort('created', 'DESC')
       ->execute();
-    $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
+    $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($nids);
 
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
