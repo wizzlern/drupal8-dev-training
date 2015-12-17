@@ -8,11 +8,11 @@
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -41,6 +41,13 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   protected $entityQuery;
 
   /**
+   * The renderer service.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
    * Constructs a new NewGames block instance.
    *
    * @param array $configuration
@@ -57,11 +64,12 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
    *   Entity query manager service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_type_manager, QueryFactory $entity_query) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_type_manager, QueryFactory $entity_query, RendererInterface $renderer) {
 
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
+    $this->renderer = $renderer;
   }
 
   /**
@@ -75,7 +83,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
     return new static($configuration, $plugin_id, $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('entity.query')
+      $container->get('entity.query'),
+      $container->get('renderer')
     );
   }
 
@@ -116,9 +125,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
-    $items = array();
-    $cache_contexts = array();
-    $cache_tags = array();
+    $build = [];
+    $items = [];
     $max = $this->configuration['max_items'];
 
     $nids = $this->entityQuery->get('node')
@@ -133,27 +141,23 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     foreach ($nodes as $node) {
       if ($node->access('view')) {
         $items[] = $node->link();
-        $cache_contexts = array_merge($cache_contexts, $node->getCacheContexts());
-        $cache_tags = array_merge($cache_tags, $node->getCacheTags());
+        $this->renderer->addCacheableDependency($build, $node);
       }
     }
 
     if ($items) {
-      return array(
+      $build['links'] = array(
         '#theme' => 'item_list',
         '#items' => $items,
-        '#cache' => array(
-          'contexts' => $cache_contexts,
-          'tags' => $cache_tags,
-        ),
       );
     }
     else {
-      return array(
+      $build['empty'] = array(
         '#markup' => $this->t('Bummer, no game reviews.')
       );
     }
 
+    return $build;
   }
 
 }
