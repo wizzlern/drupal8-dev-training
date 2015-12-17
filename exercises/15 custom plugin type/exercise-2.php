@@ -6,9 +6,12 @@
  */
 
 // ==== Step 1 ====
-// Create a page that displays the processed HTML data.
-// - Create a content controller to display the resulting data returned by the
-//   HTML processors. URL: /admin/config/services/wizzlern_webservice/data
+// Create a backend page that displays the processed HTML data.
+// - Use the test page from exercise '14 service'. Change it into a diagnostic
+//   page that displays the resulting data returned by the HTML processors.
+//   URL: /admin/config/services/wizzlern_webservice/data
+//   Title: Dom Data
+// - Add a tab to the page.
 
 // ==== Step 2 ====
 // Add a dedicated permission to the HtmlClient configuration entity.

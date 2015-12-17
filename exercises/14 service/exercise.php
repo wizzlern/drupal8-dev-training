@@ -2,7 +2,7 @@
 
 /**
  * Contains exercises to create a service.
- * Estimated time: 30 minutes.
+ * Estimated time: 15 minutes.
  */
 
 // ==== Step 1 ====
@@ -15,6 +15,12 @@
 // - Note that this service requires the core http client.
 
 // ==== Step 2 ====
+// Create a test page that will show the fetched data.
+// - Create a controller class and router. Choose your own URL and title.
+// - The controller uses the webservice to fetch html data
+// - Display some results from a webservice.
+
+// ==== Step 3 ====
 // Get the DOM of the html data.
 // - Use the files in the src/ClientApi folder provided in this exercise.
 // - Add a constructor to load the service(s) this class requires.

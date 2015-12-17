@@ -20,7 +20,7 @@
 // - Build the code around the plugin
 //   - Write (sketch) code that calls the plugin and returns data to the page.
 // - Build the first plugin and show the result on the diagnostic page.
-//   - Write the plugin and return (dummmy) data.
+//   - Write the plugin and return (dummy) data.
 // - Evaluate and rework
 //   - Does the plugin match the interface design and the overall functionality?
 //   - Is the interface re-usable for other plugins?

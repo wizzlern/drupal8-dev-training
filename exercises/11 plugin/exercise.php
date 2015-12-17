@@ -8,11 +8,13 @@
 // ==== Step 1 ====
 // Create a field formatter plugin for the Pegi rating taxonomy term reference.
 // - Find an example field formatter plugin in core.
-// - Create a field formatter plugin class.
+// - Create a field formatter plugin class. Alternatively use Console module
+//   (http://drupalconsole.com/) to generate a field formatter plugin.
 // - Set up the annotation.
-// - Provide dummy output.
-// - Apply the field formatter to the Pegi taxonomy term field in the Games
-//   review content type.
+// - Determine which method in the plugin is responsible for the output.
+// - Provide some dummy output.
+// - Modify the Games review default view mode. Use the new field formatter for
+//   the Pegi taxonomy term field.
 // - Test the result.
 
 // ==== Step 2 ====

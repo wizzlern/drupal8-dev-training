@@ -10,8 +10,10 @@
 // Each processor will fetch some content from the HTML that is returned by a
 // webservice client. The input is the full HTML response, the returned value
 // is a string.
-// - Create an annotation type plugin with:
-//   - Plugin class: HtmlProcessor
-//   - Plugin name: html_processor
-//   Find a good example or copy the files from wizzlern_webservice/* in this
-//   folder.
+// - Create a plugin manager for annotation type plugins. This includes:
+//   - Annotation definition class (extends Plugin).
+//   - Plugin manager and its interface (class: HtmlProcessor;
+//     name: html_processor).
+//   - Plugin base class (extends PluginBase)
+//   Either use Console, copy an example from core or copy the files from
+//   wizzlern_webservice/* in this folder.
