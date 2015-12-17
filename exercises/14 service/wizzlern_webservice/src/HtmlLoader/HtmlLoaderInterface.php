@@ -2,17 +2,17 @@
 
 /**
  * @file
- * Contains \Drupal\wizzlern_webservice\ClientApi\HtmlClientApiInterface.
+ * Contains \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoaderInterface.
  */
 
-namespace Drupal\wizzlern_webservice\ClientApi;
+namespace Drupal\wizzlern_webservice\HtmlLoader;
 use SimpleHtmlDom\simple_html_dom_node;
 
 
 /**
- * HTML Client API interface.
+ * HTML Loader interface.
  */
-interface HtmlClientApiInterface {
+interface HtmlLoaderInterface {
 
   /**
    * Fetches the HTML DOM of a web page.

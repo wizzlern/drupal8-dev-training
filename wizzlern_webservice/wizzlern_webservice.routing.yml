@@ -34,7 +34,7 @@ wizzlern_webservice.html_client.data:
   path: '/admin/config/services/wizzlern_webservice/data'
   defaults:
     _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::receivedData'
-    _title: 'Received Data'
+    _title: 'Dom Data'
   requirements:
     _permission: 'administer wizzlern webservice'
 

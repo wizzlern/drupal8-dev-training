@@ -9,7 +9,7 @@ namespace Drupal\wizzlern_webservice\Controller;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\wizzlern_webservice\ClientApi\HtmlClientApi;
+use Drupal\wizzlern_webservice\HtmlLoader\HtmlLoader;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -20,11 +20,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class DisplayController extends ControllerBase {
 
   /**
-   * HTML Client API.
+   * HTML Loader.
    *
-   * @var \Drupal\wizzlern_webservice\ClientApi\HtmlClientApi
+   * @var \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoader
    */
-  protected $htmlClientApi;
+  protected $htmlLoader;
 
   /**
    * HTML processor plugin manager.
@@ -36,13 +36,13 @@ class DisplayController extends ControllerBase {
   /**
    * Constructs a new DisplayController instance.
    *
-   * @param \Drupal\wizzlern_webservice\ClientApi\HtmlClientApi $html_client_api
+   * @param \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoader $html_loader
    *   The HTML client webservice.
    * @param \Drupal\Component\Plugin\PluginManagerInterface $html_processor_plugin_manager
    *   The HTML Processor plugin manager.
    */
-  public function __construct(HtmlClientApi $html_client_api, PluginManagerInterface $html_processor_plugin_manager) {
-    $this->htmlClientApi = $html_client_api;
+  public function __construct(HtmlLoader $html_loader, PluginManagerInterface $html_processor_plugin_manager) {
+    $this->htmlLoader = $html_loader;
     $this->htmlProcessorPluginManager = $html_processor_plugin_manager;
   }
 
@@ -72,7 +72,7 @@ class DisplayController extends ControllerBase {
 
       // Load HTML data from the endpoint.
       try {
-        $dom = $this->htmlClientApi->loadDom($entity->getEndpointUrl());
+        $dom = $this->htmlLoader->loadDom($entity->getEndpointUrl());
       }
       catch (\Exception $e) {
         watchdog_exception('wizzlern_webservice', $e);
