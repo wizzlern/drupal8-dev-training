@@ -8,11 +8,12 @@
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Entity\EntityManagerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -29,7 +30,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   /**
    * The entity type manager.
    *
-   * @var \Drupal\Core\Entity\EntityManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
@@ -48,6 +49,12 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   protected $renderer;
 
   /**
+   * The current user's account.
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $currentUser;
+
+  /**
    * Constructs a new NewGames block instance.
    *
    * @param array $configuration
@@ -64,12 +71,13 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
    *   Entity query manager service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManagerInterface $entity_type_manager, QueryFactory $entity_query, RendererInterface $renderer) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query, RendererInterface $renderer, AccountProxyInterface $current_user) {
 
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
     $this->renderer = $renderer;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -84,7 +92,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     return new static($configuration, $plugin_id, $plugin_definition,
       $container->get('entity_type.manager'),
       $container->get('entity.query'),
-      $container->get('renderer')
+      $container->get('renderer'),
+      $container->get('current_user')
     );
   }
 
@@ -144,6 +153,14 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
         $this->renderer->addCacheableDependency($build, $node);
       }
     }
+
+    // Add cache properties for the current user.
+    // The block content varies per user and should be invalidated when the
+    // account changes. The user entity does not (yet) contain this info.
+    // Using tag 'user:[uid]' no longer works if we story the user's birthday
+    // instead of the age.
+    $build['#cache']['context'][] = 'user';
+    $build['#cache']['tags'][] = 'user:' . $this->currentUser->id();
 
     if ($items) {
       $build['links'] = array(

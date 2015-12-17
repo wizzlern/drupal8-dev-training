@@ -16,7 +16,12 @@ define('WIZZLERN_PEGI_GAME_CONTENT_TYPE', 'game');
 define('WIZZLERN_PEGI_TAXONOMY_VOCABULARY', 'pegi_rating');
 
 /**
- * The game review field that contains a pegi categorie (reference).
+ * The field that is used to reference from the game to its Pegy category.
+ */
+define('WIZZLERN_GAME_PEGI_REFERENCE', 'field__ref_pegi');
+
+/**
+ * The Pegi taxonomy term field that contains the allowed age.
  */
 define('WIZZLERN_PEGI_FIELD_ALLOWED_AGE', 'field_allowed_age');
 
@@ -89,25 +94,27 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
  *
  * @see hook_ENTITY_TYPE_access()
  */
-function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
+function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
   /** @var \Drupal\node\Entity\Node $entity */
   $access = AccessResult::neutral();
 
   // @todo Use node_access_grants for content access.
+  if ($operation == 'view' && $entity->hasField(WIZZLERN_GAME_PEGI_REFERENCE)) {
+    $pegi_entities = $entity->{WIZZLERN_GAME_PEGI_REFERENCE}->referencedEntities();
+    if ($pegi_entities) {
+      $allowed_age = $pegi_entities[0]->{WIZZLERN_PEGI_FIELD_ALLOWED_AGE}->value;
 
-  if ($operation == 'view' && $entity->hasField(WIZZLERN_PEGI_FIELD_ALLOWED_AGE)) {
-    $allowed_age = $entity->{WIZZLERN_PEGI_FIELD_ALLOWED_AGE}->value;
+      /** @var \Drupal\user\Entity\User $user */
+      $user = User::load($account->id());
+      $age = $user->{WIZZLERN_PEGI_FIELD_USER_AGE}->value;
 
-    /** @var \Drupal\user\Entity\User $user */
-    $user = User::load($account->id());
-    $age = $user->{WIZZLERN_PEGI_FIELD_USER_AGE}->value;
-
-    // Deny access when user is too young. If old enough, we return an
-    // instantiated AccessResult object that neither explicitly allows nor
-    // explicitly forbids access. Other modules can still deny access. If too
-    // young we explicitly forbid access.
-    if ($age < $allowed_age) {
-      $access = AccessResult::forbidden();
+      // Deny access when user is too young. If old enough, we return an
+      // instantiated AccessResult object that neither explicitly allows nor
+      // explicitly forbids access. Other modules can still deny access. If too
+      // young we explicitly forbid access.
+      if ($age < $allowed_age) {
+        $access = AccessResult::forbidden();
+      }
     }
   }
 
