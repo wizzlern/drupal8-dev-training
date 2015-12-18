@@ -30,6 +30,17 @@ interface HtmlProcessorInterface extends PluginInspectionInterface {
   public function getName();
 
   /**
+   * Sets the DOM object for further processing.
+   *
+   * @param \SimpleHtmlDom\simple_html_dom $dom
+   *   The DOM object.
+   *
+   * @return \SimpleHtmlDom\simple_html_dom
+   *   The stored DOM object.
+   */
+  public function setDom($dom);
+
+  /**
    * Performs data processing.
    *
    * @return string

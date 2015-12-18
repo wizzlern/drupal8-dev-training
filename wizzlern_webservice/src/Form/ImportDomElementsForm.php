@@ -110,11 +110,14 @@ class ImportDomElementsForm extends FormBase {
 
       // Execute processor plugins on the HTML data.
       foreach ($entity->getProcessors() as $plugin_id) {
+        $result = NULL;
 
         // Load and execute HTML processor plugin.
         /** @var \Drupal\wizzlern_webservice\Plugin\HtmlProcessor\HtmlH1Processor $processor */
         $processor = $this->htmlProcessorManager->createInstance($plugin_id);
-        $result = $processor->setDom($dom)->process();
+        if ($dom = $processor->setDom($dom)) {
+          $result = $dom->process();
+        }
 
         if ($result) {
           $key = $processor->getId();
