@@ -44,8 +44,7 @@ class HtmlLoader implements HtmlLoaderInterface {
   public function loadDom($url) {
 
     // Load HTML data from endpoint.
-    $request = $this->httpClient->createRequest('GET', $url);
-    $response = $this->httpClient->send($request);
+    $response = $this->httpClient->get($url);
     $html = $response->getBody()->getContents();
 
     // Return the HTML as SimpleHtmlDom object.
