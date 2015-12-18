@@ -85,7 +85,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   public function getAllProcessors() {
     $options = array();
 
-    $processors = \Drupal::getContainer()->get('plugin.manager.html_client.processor')->getDefinitions();
+    $processors = \Drupal::getContainer()->get('plugin.manager.html_processor')->getDefinitions();
 
     foreach ($processors as $processor => $definition) {
       $options[$processor] = $definition['label']->render();

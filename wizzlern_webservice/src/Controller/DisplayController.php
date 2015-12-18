@@ -51,8 +51,8 @@ class DisplayController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('wizzlern_webservice.html_client'),
-      $container->get('plugin.manager.html_client.processor')
+      $container->get('wizzlern_webservice.html_loader'),
+      $container->get('plugin.manager.html_processor')
     );
   }
 
