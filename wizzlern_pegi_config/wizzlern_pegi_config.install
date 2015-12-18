@@ -9,10 +9,10 @@ function wizzlern_pegi_config_install() {
   // The field is added using configuration at install time (config/init) but
   // the form view mode can not be updated with the field in that way. We leave
   // the field hidden in the entity view modes.
-  if (!empty(Drupal::entityManager()->getStorage('field_config')->load('user.user.field_user_age'))) {
+  if (!empty(Drupal::entityTypeManager()->getStorage('field_config')->load('user.user.field_user_age'))) {
 
     /** @var Drupal\Core\Entity\Entity\EntityFormDisplay $entity */
-    $entity = Drupal::entityManager()
+    $entity = Drupal::entityTypeManager()
       ->getStorage('entity_form_display')
       ->load('user.user.default');
 
