@@ -12,6 +12,9 @@ version: 8.x-1.x
 core: 8.x
 # Route definition of the module's configuration page.
 configure: wizzlern_pegi.settings
-
-# Other frequenty used properties:
-# dependencies: list of modules that this module requires.
+# List of modules that this module requires.
+dependencies:
+  - taxonomy
+  - node
+# Required projects hosted at drupal.org should be prefixed with "project:"
+# A version dependency suffix is optional. Example: " (>=8.x-2.2)".
