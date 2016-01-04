@@ -36,6 +36,12 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *     "edit-form" = "/admin/config/services/wizzlern_webservice/{html_client}",
  *     "delete-form" = "/admin/config/services/wizzlern_webservice/{html_client}/delete",
  *     "collection" = "/admin/config/services/wizzlern_webservice"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "endpoint_url",
+ *     "processors"
  *   }
  * )
  */
