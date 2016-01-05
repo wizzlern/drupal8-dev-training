@@ -90,16 +90,22 @@ class WizzlernPegiController extends ControllerBase {
     // classes have several methods to build the output render array.
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $nid => $node) {
-      // @todo remove this form of access control.
+      // @todo remove this type of access control.
+      // @todo Find out what to do with anonymous users. Show no games?
       if ($node->access('view')) {
         $items[$nid] = $this->entityTypeManager->getViewBuilder('node')
           ->view($node, 'teaser');
       }
     }
     if ($items) {
+      // The access control is per user, so we set a cache context for user.
       $build['games'] = array(
         '#theme' => 'item_list',
         '#items' => $items,
+        '#cache' => array(
+          'contexts' => ['user'],
+          'tags' => ['user:' . $this->currentUser->id()],
+        ),
       );
 
       // Add a pager to the output.
@@ -117,6 +123,9 @@ class WizzlernPegiController extends ControllerBase {
         '#markup' => $this->t('Bummer, we have no game reviews for you now :('),
       );
     }
+
+    // The cache must be invalidated when a new game is created.
+    $build['#cache']['tags'][] = 'wizzlern_pegi.new_game';
 
     return $build;
   }

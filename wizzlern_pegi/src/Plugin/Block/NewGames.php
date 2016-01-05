@@ -154,18 +154,20 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
       }
     }
 
-    // Add cache properties for the current user.
-    // The block content varies per user and should be invalidated when the
-    // account changes. The user entity does not (yet) contain this info.
-    // Using tag 'user:[uid]' no longer works if we story the user's birthday
-    // instead of the age.
-    $build['#cache']['context'][] = 'user';
-    $build['#cache']['tags'][] = 'user:' . $this->currentUser->id();
-
     if ($items) {
       $build['links'] = array(
         '#theme' => 'item_list',
         '#items' => $items,
+      );
+
+      // Add cache properties for the current user.
+      // The block content varies per user and should be invalidated when the
+      // account changes. The user entity does not (yet) contain this info.
+      // Using tag 'user:[uid]' no longer works if we story the user's birthday
+      // instead of the age.
+      $build['links']['#cache'] = array(
+        'context' => ['user'],
+        'tags' => ['user:' . $this->currentUser->id()]
       );
     }
     else {
@@ -173,6 +175,9 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
         '#markup' => $this->t('Bummer, no game reviews.')
       );
     }
+
+    // The cache must be invalidated when a new game is created.
+    $build['#cache']['tags'][] = 'wizzlern_pegi.new_game';
 
     return $build;
   }
