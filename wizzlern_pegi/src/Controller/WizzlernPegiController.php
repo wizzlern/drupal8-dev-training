@@ -11,6 +11,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Entity\Query\QueryFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -33,17 +34,27 @@ class WizzlernPegiController extends ControllerBase {
   protected $entityQuery;
 
   /**
+   * The current user's account.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
+  protected $currentUser;
+
+  /**
    * Constructs a content controller.
    *
    * @param EntityTypeManagerInterface $entity_type_manager
    *   Entity manager.
    * @param QueryFactory $entity_query
    *   Entity query factory.
+   * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+   *   The current user account service.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query, AccountProxyInterface $current_user) {
 
     $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -59,7 +70,8 @@ class WizzlernPegiController extends ControllerBase {
 
     return new static(
       $container->get('entity_type.manager'),
-      $container->get('entity.query')
+      $container->get('entity.query'),
+      $container->get('current_user')
     );
   }
 

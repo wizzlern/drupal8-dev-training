@@ -50,6 +50,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The current user's account.
+   *
    * @var \Drupal\Core\Session\AccountProxyInterface
    */
   protected $currentUser;
@@ -70,6 +71,10 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    *   Entity manager service.
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
    *   Entity query manager service.
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   *   The renderer service.
+   * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+   *   The current user account service.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query, RendererInterface $renderer, AccountProxyInterface $current_user) {
 
