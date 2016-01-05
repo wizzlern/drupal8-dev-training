@@ -102,7 +102,7 @@ class WizzlernPegiController extends ControllerBase {
     // classes have several methods to build the output render array.
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $nid => $node) {
-      // @todo remove this type of access control.
+      // @todo remove this type of access control. It 'breaks' the pager.
       // @todo Find out what to do with anonymous users. Show no games?
       if ($node->access('view')) {
         $items[$nid] = $this->entityTypeManager->getViewBuilder('node')
