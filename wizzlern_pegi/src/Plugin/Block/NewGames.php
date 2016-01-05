@@ -149,7 +149,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
       if ($node->access('view')) {
-        $items[] = $node->link();
+        $items[] = $node->toLink();
         $this->renderer->addCacheableDependency($build, $node);
       }
     }
