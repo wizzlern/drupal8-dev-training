@@ -40,7 +40,7 @@ class WizzlernPegiController extends ControllerBase {
    * @param QueryFactory $entity_query
    *   Entity query factory.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactoryInterface $entity_query) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query) {
 
     $this->entityTypeManager = $entity_type_manager;
     $this->entityQuery = $entity_query;
@@ -109,6 +109,7 @@ class WizzlernPegiController extends ControllerBase {
         '#parameters' => [],
         '#quantity' => 4,
         '#tags' => [],
+        '#route_name' => '<none>',
       );
     }
     else {
