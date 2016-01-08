@@ -122,12 +122,8 @@ class WizzlernPegiController extends ControllerBase {
 
       // Add a pager to the output.
       $build['pager'] = array(
-        '#theme' => 'pager',
-        '#element' => 0,
-        '#parameters' => [],
+        '#type' => 'pager',
         '#quantity' => 4,
-        '#tags' => [],
-        '#route_name' => '<none>',
       );
     }
     else {
