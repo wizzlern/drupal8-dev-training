@@ -18,7 +18,7 @@ use Drupal\Core\Form\FormStateInterface;
 // the games overview page.
 // - Find examples of configuration forms in core.
 // - Set the form ID.
-// - Set the configuration names this form will modify.
+// - Determine the name of the configuration that this form will modify.
 // - Add the form element for the number of games on the page.
 // - Save the configuration value in the submit handler.
 // - Add a route for the form.
