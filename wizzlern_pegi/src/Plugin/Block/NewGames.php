@@ -67,8 +67,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_type_manager
-   *   Entity manager service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   Entity type manager service.
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
    *   Entity query manager service.
    * @param \Drupal\Core\Render\RendererInterface $renderer
