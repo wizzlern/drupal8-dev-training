@@ -1,33 +1,32 @@
 # HtmlClient routing definition
 entity.html_client.collection:
-  path: '/admin/config/system/html_client'
+  path: '/admin/config/services/wizzlern_webservice'
   defaults:
     _entity_list: 'html_client'
-    _title: 'HtmlClient Configuration'
+    _title: 'Wizzlern webservice'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer wizzlern webservice'
 
 entity.html_client.add_form:
-  path: '/admin/config/system/html_client/add'
+  path: '/admin/config/services/wizzlern_webservice/add'
   defaults:
     _entity_form: 'html_client.add'
-    _title: 'Add HtmlClient'
+    _title: 'Add webservice'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer wizzlern webservice'
 
 entity.html_client.edit_form:
-  path: '/admin/config/system/html_client/{html_client}'
+  path: '/admin/config/services/wizzlern_webservice/{html_client}'
   defaults:
     _entity_form: 'html_client.edit'
-    _title: 'Edit HtmlClient'
+    _title: 'Edit webservice'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'administer wizzlern webservice'
 
 entity.html_client.delete_form:
-  path: '/admin/config/system/html_client/{html_client}/delete'
+  path: '/admin/config/services/wizzlern_webservice/{html_client}/delete'
   defaults:
     _entity_form: 'html_client.delete'
-    _title: 'Delete HtmlClient'
+    _title: 'Delete webservice'
   requirements:
-    _permission: 'administer site configuration'
-
+    _permission: 'administer wizzlern webservice'

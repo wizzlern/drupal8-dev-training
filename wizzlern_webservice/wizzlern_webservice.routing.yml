@@ -86,4 +86,3 @@ dom_fragments.settings:
    _title: 'DomFragments Settings'
   requirements:
     _permission: 'administer DomFragments entity'
-

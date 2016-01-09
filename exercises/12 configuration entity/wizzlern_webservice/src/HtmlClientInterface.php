@@ -5,7 +5,7 @@
  * Contains Drupal\wizzlern_webservice\HtmlClientInterface.
  */
 
-namespace Drupal\wizzlern_client;
+namespace Drupal\wizzlern_webservice;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
