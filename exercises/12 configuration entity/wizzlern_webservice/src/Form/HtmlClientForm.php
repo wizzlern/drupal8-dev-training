@@ -17,6 +17,7 @@ use Drupal\Core\Form\FormStateInterface;
  * @package Drupal\wizzlern_webservice\Form
  */
 class HtmlClientForm extends EntityForm {
+
   /**
    * {@inheritdoc}
    */

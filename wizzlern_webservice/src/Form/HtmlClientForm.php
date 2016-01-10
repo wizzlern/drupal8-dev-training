@@ -31,7 +31,7 @@ class HtmlClientForm extends EntityForm {
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $html_client->label(),
-      '#description' => $this->t('Label for the webservice.'),
+      '#description' => $this->t('Label for the HtmlClient.'),
       '#required' => TRUE,
     );
 

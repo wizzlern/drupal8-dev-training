@@ -25,7 +25,7 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *     }
  *   },
  *   config_prefix = "html_client",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer wizzlern webservice",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
@@ -35,10 +35,17 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *     "edit-form" = "/admin/config/services/wizzlern_webservice/{html_client}",
  *     "delete-form" = "/admin/config/services/wizzlern_webservice/{html_client}/delete",
  *     "collection" = "/admin/config/services/wizzlern_webservice"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "endpoint_url",
+ *     "processors"
  *   }
  * )
  */
 class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
+
   /**
    * The HtmlClient ID.
    *

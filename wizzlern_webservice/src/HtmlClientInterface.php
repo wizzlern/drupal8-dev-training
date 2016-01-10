@@ -10,7 +10,7 @@ namespace Drupal\wizzlern_webservice;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
 /**
- * Provides an interface defining an HTML client entity.
+ * Provides an interface defining a HtmlClient entity.
  */
 interface HtmlClientInterface extends ConfigEntityInterface {
 

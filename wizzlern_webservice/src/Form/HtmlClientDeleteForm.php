@@ -12,7 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete a WizzlernWebservice.
+ * Builds the form to delete a HtmlClient.
  */
 class HtmlClientDeleteForm extends EntityConfirmFormBase {
   /**
