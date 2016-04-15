@@ -141,17 +141,9 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   public function build() {
     $build = [];
     $items = [];
-    $max = $this->configuration['max_items'];
 
-    $nids = $this->entityQuery->get('node')
-      ->condition('type', WIZZLERN_PEGI_GAME_CONTENT_TYPE)
-      ->condition('status', 1)
-      ->range(0, $max)
-      ->sort('created', 'DESC')
-      ->execute();
-    $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($nids);
+    $nodes = $this->loadGames($this->configuration['max_items']);
 
-    /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
       if ($node->access('view')) {
         $items[] = $node->toLink();
@@ -185,6 +177,26 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     $build['#cache']['tags'][] = 'wizzlern_pegi.new_game';
 
     return $build;
+  }
+
+  /**
+   * Loads recent game reviews.
+   *
+   * @param $count
+   *   The maximum number or games to load.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface[]
+   *   Array of Game review nodes.
+   */
+  protected function loadGames($count = 5) {
+    $nids = $this->entityQuery->get('node')
+      ->condition('type', WIZZLERN_PEGI_GAME_CONTENT_TYPE)
+      ->condition('status', 1)
+      ->range(0, $count)
+      ->sort('created', 'DESC')
+      ->execute();
+
+    return $this->entityTypeManager->getStorage('node')->loadMultiple($nids);
   }
 
 }
