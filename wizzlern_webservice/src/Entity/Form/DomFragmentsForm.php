@@ -38,11 +38,9 @@ class DomFragmentsForm extends ContentEntityForm {
   /**
    * Overrides \Drupal\Core\Entity\EntityFormController::submit().
    */
-  public function submit(array $form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     // Build the entity object from the submitted values.
-    $entity = parent::submit($form, $form_state);
-
-    return $entity;
+    parent::submitForm($form, $form_state);
   }
 
   /**
