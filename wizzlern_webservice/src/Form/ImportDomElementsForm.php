@@ -7,9 +7,11 @@
 
 namespace Drupal\wizzlern_webservice\Form;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\wizzlern_webservice\HtmlLoader\HtmlLoaderInterface;
+use Drupal\wizzlern_webservice\HtmlProcessorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -34,14 +36,23 @@ class ImportDomElementsForm extends FormBase {
   protected $htmlProcessorManager;
 
   /**
+   * The entity manager.
+   *
+   * @var EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * Constructs a new Dom Elements import form.
    *
-   * @param \Drupal\Core\Entity\EntityStorageInterface $storage
-   *   The rules_component storage.
+   * @param HtmlLoaderInterface $html_loader
+   * @param HtmlProcessorInterface $html_processor_manager
+   * @param EntityTypeManagerInterface $entity_type_manager
    */
-  public function __construct(HtmlLoaderInterface $html_loader, HtmlProcessorInterface $html_processor_manager) {
+  public function __construct(HtmlLoaderInterface $html_loader, HtmlProcessorInterface $html_processor_manager, EntityTypeManagerInterface $entity_type_manager) {
     $this->htmlLoader = $html_loader;
     $this->htmlProcessorManager = $html_processor_manager;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -50,7 +61,8 @@ class ImportDomElementsForm extends FormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('wizzlern_webservice.html_loader'),
-      $container->get('plugin.manager.html_processor')
+      $container->get('plugin.manager.html_processor'),
+      $container->get('entity_type.manager')
     );
   }
 
@@ -94,8 +106,11 @@ class ImportDomElementsForm extends FormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // @todo Change architecture. Make service? Redirect to wizzlern_webservice.html_client.data?
-    $entities = \Drupal::entityManager()->getStorage('html_client')->loadMultiple();
+    $values = array();
+    // @todo Change architecture. Make service? Use protected function?
+    // @todo Redirect to wizzlern_webservice.html_client.data?
+    /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
+    $entities = $this->entityTypeManager->getStorage('html_client')->loadMultiple();
     foreach ($entities as $entity) {
 
       // Load HTML data from the endpoint.
@@ -125,10 +140,11 @@ class ImportDomElementsForm extends FormBase {
         }
       }
 
-      \Drupal::entityManager()->getStorage('dom_elements')
-        ->create($values)
-        ->save();
-
+      if ($values) {
+        $this->entityTypeManager->getStorage('dom_elements')
+          ->create($values)
+          ->save();
+      }
     }
   }
 }
