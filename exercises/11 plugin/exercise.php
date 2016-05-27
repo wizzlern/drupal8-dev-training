@@ -8,7 +8,7 @@
 // ==== Step 1 ====
 // Create a field formatter plugin for the Pegi rating taxonomy term reference.
 // - Find an example field formatter plugin in core.
-// - Create a field formatter plugin class. Alternatively use Console module
+// - Create a field formatter plugin class. Alternatively use Drupal Console
 //   (http://drupalconsole.com/) to generate a field formatter plugin.
 // - Set up the annotation.
 // - Determine which method in the plugin is responsible for the output.

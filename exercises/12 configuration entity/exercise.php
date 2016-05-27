@@ -12,10 +12,10 @@
 // ==== Step 2 ====
 // Create a configuration entity that will contain the configuration of
 // webservice client.
-// - Use the Console module (http://drupalconsole.com/) to create a
+// - Use Drupal Console (http://drupalconsole.com/) to create a
 //   configuration entity:
-//   - $ console list
-//   - $ console generate:entity:config
+//   - $ drupal list
+//   - $ drupal generate:entity:config
 //   - Class name: HtmlClient
 //   - Entity name: html_client
 //   Alternatively copy the files from wizzlern_webservice/* in this directory.

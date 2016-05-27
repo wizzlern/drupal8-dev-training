@@ -15,5 +15,5 @@
 //   - Plugin manager and its interface (class: HtmlProcessor;
 //     name: html_processor).
 //   - Plugin base class (extends PluginBase)
-//   Either use Console, copy an example from core or copy the files from
+//   Either use Drupal Console, copy an example from core or copy the files from
 //   wizzlern_webservice/* in this folder.
