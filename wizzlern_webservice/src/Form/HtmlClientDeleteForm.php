@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Form\HtmlClientDeleteForm.
- */
-
 namespace Drupal\wizzlern_webservice\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;

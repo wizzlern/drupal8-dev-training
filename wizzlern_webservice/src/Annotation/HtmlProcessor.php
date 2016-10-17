@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Annotation\HtmlProcessor.
- */
-
 namespace Drupal\wizzlern_webservice\Annotation;
 
 use Drupal\Component\Annotation\Plugin;

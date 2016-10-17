@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Controller\HtmlClientListBuilder.
- */
-
 namespace Drupal\wizzlern_webservice\Controller;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;

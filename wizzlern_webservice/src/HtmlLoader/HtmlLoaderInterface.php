@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoaderInterface.
- */
-
 namespace Drupal\wizzlern_webservice\HtmlLoader;
 use SimpleHtmlDom\simple_html_dom_node;
 

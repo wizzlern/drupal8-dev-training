@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\HtmlProcessorBase.
- */
-
 namespace Drupal\wizzlern_webservice;
 
 use Drupal\Component\Plugin\PluginBase;

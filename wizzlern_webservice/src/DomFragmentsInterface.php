@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\DomFragmentsInterface.
- */
-
 namespace Drupal\wizzlern_webservice;
 
 use Drupal\Core\Entity\ContentEntityInterface;

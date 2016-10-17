@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Entity\Form\DomFragmentsDeleteForm.
- */
-
 namespace Drupal\wizzlern_webservice\Entity\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;

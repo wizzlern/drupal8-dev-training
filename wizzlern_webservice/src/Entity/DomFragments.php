@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Entity\DomFragments.
- */
-
 namespace Drupal\wizzlern_webservice\Entity;
 
 use Drupal\Core\Field\BaseFieldDefinition;

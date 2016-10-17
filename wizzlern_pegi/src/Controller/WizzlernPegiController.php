@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_pegi\Controller\WizzlernPegiController.
- */
-
 namespace Drupal\wizzlern_pegi\Controller;
 
 use Drupal\Core\Controller\ControllerBase;

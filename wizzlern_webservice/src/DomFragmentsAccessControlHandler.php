@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\DomFragmentsAccessControlHandler.
- */
-
 namespace Drupal\wizzlern_webservice;
 
 use Drupal\Core\Entity\EntityAccessControlHandler;

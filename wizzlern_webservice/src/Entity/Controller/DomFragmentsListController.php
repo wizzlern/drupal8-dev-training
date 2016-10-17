@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Entity\Controller\DomFragmentsListController.
- */
-
 namespace Drupal\wizzlern_webservice\Entity\Controller;
 
 use Drupal\Core\Entity\EntityInterface;

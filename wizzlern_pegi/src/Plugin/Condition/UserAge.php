@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_pegi\Plugin\Condition\UserAge.
- */
-
 namespace Drupal\wizzlern_pegi\Plugin\Condition;
 
 use Drupal\Core\Condition\ConditionPluginBase;

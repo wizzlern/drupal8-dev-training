@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_pegi\Plugin\Field\FieldFormatter\PegiReferenceLinkFormatter.
- */
-
 namespace Drupal\wizzlern_pegi\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;

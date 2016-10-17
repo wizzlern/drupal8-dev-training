@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
- */
-
 namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;

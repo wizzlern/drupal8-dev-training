@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\wizzlern_webservice\Plugin\HtmlProcessor\HtmlLanguageProcessor.
- */
 
 namespace Drupal\wizzlern_webservice\Plugin\HtmlProcessor;
 

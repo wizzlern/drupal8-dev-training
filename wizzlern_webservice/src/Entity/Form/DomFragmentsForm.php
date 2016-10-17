@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Entity\Form\DomFragmentsForm.
- */
-
 namespace Drupal\wizzlern_webservice\Entity\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;

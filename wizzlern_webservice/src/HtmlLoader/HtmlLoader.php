@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoader.
- */
-
 namespace Drupal\wizzlern_webservice\HtmlLoader;
 
 use GuzzleHttp\ClientInterface;

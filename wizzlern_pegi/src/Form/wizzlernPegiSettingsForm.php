@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\wizzlern_pegi\Form\WizzlernPegiSettingsForm.
- */
-
 namespace Drupal\wizzlern_pegi\Form;
 
 use Drupal\Core\Form\ConfigFormBase;

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Entity\HtmlClient.
- */
-
 namespace Drupal\wizzlern_webservice\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Controller\DisplayController.
- */
-
 namespace Drupal\wizzlern_webservice\Controller;
 
 use Drupal\Component\Plugin\PluginManagerInterface;

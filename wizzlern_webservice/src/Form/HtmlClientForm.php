@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Form\HtmlClientForm.
- */
-
 namespace Drupal\wizzlern_webservice\Form;
 
 use Drupal\Core\Entity\EntityInterface;
