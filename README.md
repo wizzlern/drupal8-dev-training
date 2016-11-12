@@ -1,5 +1,6 @@
-Wizzlern Pegi module
-  This module is part of the Wizzlern Drupal 8 module development training.
+*Wizzlern Module Development excercises and examples.*
+
+This is part of the Wizzlern Drupal 8 module development training.
   See wizzlern.nl/training/drupal-8-module-development
 
   This module assumes the following:
