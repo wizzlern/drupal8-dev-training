@@ -16,8 +16,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @Block(
  *   id = "wizzlern_pegi_new_games",
- *   subject = @Translation("New games"),
  *   admin_label = @Translation("New games")
+ *   category = @Translation("Wizzlern")
  * )
  */
 class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
