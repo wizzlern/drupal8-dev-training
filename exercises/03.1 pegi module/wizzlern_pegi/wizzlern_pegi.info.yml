@@ -1,0 +1,6 @@
+name: 'Wizzlern Pegi'
+type: module
+description: 'Pegi classified content for Drupal 8 module development training.'
+package: Wizzlern
+version: 8.x-1.x
+core: 8.x
