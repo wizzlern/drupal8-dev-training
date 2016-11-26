@@ -39,14 +39,14 @@ class NewGames extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $items = [];
 
-    $items = array('one', 'two', 'three');
-
-    return array(
+    $build = [
       '#theme' => 'item_list',
       '#items' => $items,
-    );
+    ];
 
+    return $build;
   }
 
 }

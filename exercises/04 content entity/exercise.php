@@ -12,12 +12,30 @@
 // - Use an entity query to load the 5 most recent game reviews.
 // - Use the EntityInterface::toLink() method to build node links.
 // - Return an list of links in the build() method.
+// - TIP: You can use the code fragments below to build your code.
 // - Create or generate game review nodes and check the result.
+
+// --- Fragments for step 1 ---
+// condition()
+// entityQuery->get()
+// entityTypeManager->loadMultiple()
+// execute()
+// getStorage()
+// sort()
 
 // ==== Step 2 (optional) ====
 // Make the maximum number of links configurable.
 // - Determine which methods may be used for a block configuration form.
-// - Implement the three method for the default configuration, the form and the
+// - Implement the three methods for the default configuration, the form and the
 //   form submit handler.
 // - Use the maximum number of links in the entity query.
 // - Check the result.
+
+// --- Fragments for step 2 ---
+// $form['max_items']
+// $this->configuration['max_items']
+// '#type' => 'number'
+// blockForm()
+// blockSubmit()
+// defaultConfiguration()
+// range()
