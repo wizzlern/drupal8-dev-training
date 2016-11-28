@@ -17,7 +17,15 @@ use Drupal\Core\Controller\ControllerBase;
 // - Find in core an example of a page route.
 // - Create a routing.yml file for WizzlernPegiController::gamesOverview.
 //   using the URL '/games' and page title 'Games'.
+// - TIP: Use the fragments below to make the route.
 // - Access to the page requires the permission to access content.
+
+// --- Fragments for step 1 ---
+// path:
+// wizzlern_pegi.games_overview:
+// _controller
+// _permission
+// _title
 
 // ==== Step 2 ====
 // Load Game review nodes and output links to the nodes.
@@ -28,11 +36,23 @@ use Drupal\Core\Controller\ControllerBase;
 // - Also provide an empty text if no games are present.
 // - Create or generate game review nodes and check the result.
 
+// --- Fragments for step 2 ---
+// $build['empty']
+// '#markup'
+// entityTypeManager
+// getViewBuilder()
+// view()
+
 // ==== Step 3 (optional) ====
 // Add a pager to the output list.
 // - Find in core examples how to add a pager to the output.
 // - Apply the pager with 5 items per page.
 // - Check the result.
+
+// --- Fragments for step 2 ---
+// '#quantity'
+// '#type' => 'pager'
+// pager()
 
 /**
  * Returns responses for Wizzlern Pegi module routes.
@@ -47,7 +67,7 @@ class WizzlernPegiController extends ControllerBase {
    */
   public function gamesOverview() {
 
-    $items = array('one', 'two', 'three');
+    $items = [];
 
     $build['games'] = array(
       '#theme' => 'item_list',

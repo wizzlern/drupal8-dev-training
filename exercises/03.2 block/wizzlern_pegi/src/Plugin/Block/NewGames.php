@@ -39,6 +39,7 @@ class NewGames extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+
     $items = [];
 
     $build = [
