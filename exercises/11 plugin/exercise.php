@@ -10,11 +10,12 @@
 // - Find an example field formatter plugin in core.
 // - Create a field formatter plugin class. Alternatively use Drupal Console
 //   (http://drupalconsole.com/) to generate a field formatter plugin.
-// - Set up the annotation.
+// - Set up the annotation. Make sure the formatter is suitable for a taxonomy
+//   reference field.
 // - Determine which method in the plugin is responsible for the output.
 // - Provide some dummy output.
-// - Modify the Games review default view mode. Use the new field formatter for
-//   the Pegi taxonomy term field.
+// - Modify the Games review view mode to use the new field formatter for the
+//   Pegi taxonomy term field.
 // - Test the result.
 
 // ==== Step 2 ====
@@ -31,6 +32,9 @@
 // - Find examples of inline templates in core ('#type' => 'inline_template').
 // - Use an inline templates to format the ouptut.
 // - Test the result.
+
+// --- Fragments for step 3 ---
+// - '#type' => 'inline_template',
 
 // ==== Step 4 (optional) ====
 // Make the formatter configurable.
