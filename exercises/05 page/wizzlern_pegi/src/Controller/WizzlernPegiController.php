@@ -49,7 +49,7 @@ use Drupal\Core\Controller\ControllerBase;
 // - Apply the pager with 5 items per page.
 // - Check the result.
 
-// --- Fragments for step 2 ---
+// --- Fragments for step 3 ---
 // '#quantity'
 // '#type' => 'pager'
 // pager()

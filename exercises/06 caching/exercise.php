@@ -6,22 +6,21 @@
  */
 
 // ==== Step 1 ====
-// Add cache tags to the block output.
-// - Use the custom block code \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
+// Add cache meta data to the block output.
+// - Work with the custom block code from the previous exercises.
 // - Determine when the block cache must be invalidated.
-// - Add the node cache tags to the block render array.
+// - Add caching information from the nodes.
+// - Debug the render array to see what caching information was added.
 // - Check if a changed node title is visible in the block.
 
-// ==== Step 2 ====
-// Add cache context to the block output
-// - Add the node cache contexts to the block render array.
-// - Look into the cache_render database table and compare the cid with the
-//   added contexts.
+// --- Fragments for step 1 ---
+// - renderer
+// - addCacheableDependency
 
-// ==== Step 3 (optional) ====
+// ==== Step 2 (optional) ====
 // Invalidate the new games block cache when a games node is created.
-// - Explain why creating a new game review node does not invalidate the block
-//   cache.
+// - Check that creating a new game review node does not invalidate the block
+//   cache. Can you explain why?
 // - Determine which trigger can be used to invalidate the block cache.
 // - Invalidate the block cache when a game review node is created.
 // - Check the result.

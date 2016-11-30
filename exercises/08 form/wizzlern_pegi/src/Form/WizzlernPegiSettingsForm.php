@@ -24,17 +24,35 @@ use Drupal\Core\Form\FormStateInterface;
 // - Add a route for the form.
 // - Test the form.
 
+// --- Fragments for step 1 ---
+// - #default_value
+// - #min
+// - #title
+// - #type
+// - $config
+// - games_per_page
+// - get
+// - wizzlern_pegi.settings
+
 // ==== Step 2 ====
 // Apply the configuration.
 // - Use the configuration value in the page controller to set he maximum
 //   number of games on a page.
 // - Check the result.
 
+// --- Fragments for step 2 ---
+// - config
+// - games_per_page
+// - get
+// - wizzlern_pegi.settings
+
 // ==== Step 3 ====
 // Set default configuration values.
 // - Create a Yaml file with the default configuration value in the directory
 //   wizzlern_pegi/config/install. What should be the name of this file?
 // - Check the result by uninstalling and installing the wizzlern_pegi module.
+// - Tip: When you export configuration stored with the form, a Yaml file with
+//   this configuration is being generated.
 
 # ==== Step 4 (optional) ====
 # Make the configuration page appear on the Configuration page at /admin/config.

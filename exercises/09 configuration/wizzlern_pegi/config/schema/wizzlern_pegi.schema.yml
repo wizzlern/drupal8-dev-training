@@ -19,6 +19,17 @@
 # - Check the configuration using the Configuration inspector module
 #   https://www.drupal.org/project/config_inspector.
 
+# --- Fragments for step 2 ---
+# - config_object
+# - games_page_title
+# - games_per_page
+# - integer
+# - label
+# - mapping
+# - type
+# - wizzlern_pegi.schema.yml
+# - wizzlern_pegi.settings
+
 # ==== Step 3 (optional) ====
 # Translate the games page title.
 # - Enable the following modules: Language, Configuration Translation
