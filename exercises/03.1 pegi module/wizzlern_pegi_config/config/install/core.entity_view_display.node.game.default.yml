@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
     - user
-    - wizzlern_pegi
+    - taxonomy
 id: node.game.default
 targetEntityType: node
 bundle: game
@@ -21,10 +21,10 @@ content:
     third_party_settings: {  }
     label: hidden
   field__ref_pegi:
-    type: wizzlern_pegi_reference_link
+    type: entity_reference_label
     weight: 102
     settings:
-      image_style: thumbnail
+      link: true
     third_party_settings: {  }
     label: hidden
   links:
