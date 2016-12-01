@@ -33,7 +33,7 @@ define('WIZZLERN_PEGI_FIELD_USER_AGE', 'field_user_age');
 /**
  * The field that contains the pegi label image.
  */
-define('WIZZLERN_PEGI_FIELD_PEGI_LABEL', 'field_pegi_label');
+define('WIZZLERN_PEGI_TERM_IMAGE_FIELD', 'field_pegi_image');
 
 use Drupal\Core\Cache\Cache;
 use Drupal\user\Entity\User;
