@@ -16,7 +16,7 @@
 // - Go to the Extend page at /admin/modules and check if your module is listed.
 // - Enable the module.
 
-// Puzzle pieces:
+// --- Fragments for step 1 ---
 // - name
 // - description
 // - type
