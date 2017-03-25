@@ -24,7 +24,7 @@
 
 // ==== Step 3 ====
 // Complete the configuration data.
-// - An HTML client consists of a name (label), machine name (id) and an
+// - An HTML client that consists of a name (label), machine name (id) and an
 //   endpoint URL. Add a protected property $endpoint_url and a getter method to
 //   \Drupal\wizzlern_webservice\Entity\HtmlClient.
 // - Update the HtmlClientInterface with the new method.

@@ -12,14 +12,15 @@
 // Set up the @Block annotation.
 // - Find a block class in core that can be used as an example. (But not in the
 //   Block module).
-// - Determine the interfaces that are implemented by BlockBase.
+// - Find and read the interfaces that are implemented by BlockBase.
 // - Complete the @Block annotation below.
 //   - Use the documentation sources provided in the presentation slide.
 //   - Annotation keys are documented in: \Drupal\Core\Block\Annotation\Block.
 
 // ==== Step 2 ====
-// Implement the build() method and enable the block.
-// - Return an item list (Render Array) with dummy content.
+// Use the build() method and enable the block.
+// - Read the code that is currently used in the build() method.
+// - Modify the code to return a list of dummy content.
 // - Place the block in the sidebar and check the result.
 
 namespace Drupal\wizzlern_pegi\Plugin\Block;

@@ -9,7 +9,7 @@
 // Add cache meta data to the block output.
 // - Work with the custom block code from the previous exercises.
 // - Determine when the block cache must be invalidated.
-// - Add caching information from the nodes.
+// - Add the node's caching information to the render array.
 // - Debug the render array to see what caching information was added.
 // - Check if a changed node title is visible in the block.
 

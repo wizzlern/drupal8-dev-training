@@ -15,8 +15,11 @@ use Drupal\Core\Controller\ControllerBase;
 // ==== Step 1 ====
 // Create routing for the page.
 // - Find in core an example of a page route.
-// - Create a routing.yml file for WizzlernPegiController::gamesOverview.
-//   using the URL '/games' and page title 'Games'.
+// - Create a routing.yml file for the route definition of the Games Overview 
+//   page. This route will use:
+//   - Controller: WizzlernPegiController::gamesOverview.
+//   - URL: '/games'
+//   - Page title: 'Games'
 // - TIP: Use the fragments below to make the route.
 // - Access to the page requires the permission to access content.
 
