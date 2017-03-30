@@ -127,5 +127,7 @@ function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, 
 function wizzlern_pegi_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
 
   // Invalidated the wizzlern_pegi_new_games blocks caches.
-  Cache::invalidateTags(array('wizzlern_pegi.new_game'));
+  if ($entity->bundle() == 'game') {
+    Cache::invalidateTags(array('wizzlern_pegi.new_game'));
+  }
 }
