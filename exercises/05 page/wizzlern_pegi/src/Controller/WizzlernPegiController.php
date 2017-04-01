@@ -24,7 +24,9 @@ use Drupal\Core\Controller\ControllerBase;
 // - Access to the page requires the permission to access content.
 
 // --- Fragments for step 1 ---
+// defaults:
 // path:
+// requirements:
 // wizzlern_pegi.games_overview:
 // _controller
 // _permission
@@ -40,7 +42,7 @@ use Drupal\Core\Controller\ControllerBase;
 // - Create or generate game review nodes and check the result.
 
 // --- Fragments for step 2 ---
-// $build['empty']
+// $build['empty'] or '#empty'
 // '#markup'
 // entityTypeManager
 // getViewBuilder()
