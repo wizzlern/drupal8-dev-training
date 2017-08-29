@@ -27,12 +27,11 @@ class DomFragmentsListController extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\wizzlern_webservice\Entity\DomFragments */
     $row['id'] = $entity->id();
-    $row['name'] = \Drupal::l(
-      $this->getLabel($entity),
-      new Url(
-        'entity.dom_fragments.edit_form', ['dom_fragments' => $entity->id()]
-      )
-    );
+    $row['name'] = [
+      '#type' => 'link',
+      '#title' => $entity->label(),
+      '#url' => new Url('entity.dom_fragments.edit_form', ['dom_fragments' => $entity->id()]),
+    ];
     return $row + parent::buildRow($entity);
   }
 

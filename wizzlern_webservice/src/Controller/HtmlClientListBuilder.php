@@ -25,7 +25,7 @@ class HtmlClientListBuilder extends ConfigEntityListBuilder {
   public function buildRow(EntityInterface $entity) {
 
     /** @var \Drupal\wizzlern_webservice\HtmlClientInterface $entity */
-    $row['label'] = $this->getLabel($entity);
+    $row['label'] = $entity->label();
     $row['id'] = $entity->id();
     $row['url'] = $entity->getEndpointUrl();
     return $row + parent::buildRow($entity);

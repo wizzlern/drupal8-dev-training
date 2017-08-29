@@ -77,7 +77,7 @@ class HtmlClientForm extends EntityForm {
         '%label' => $html_client->label(),
       ]));
     }
-    $form_state->setRedirectUrl($html_client->urlInfo('collection'));
+    $form_state->setRedirectUrl($html_client->toUrl('collection'));
   }
 
 }

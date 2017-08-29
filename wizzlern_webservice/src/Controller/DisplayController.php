@@ -62,7 +62,7 @@ class DisplayController extends ControllerBase {
     $items = [];
 
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
-    $entities = $this->entityManager()->getStorage('html_client')->loadMultiple();
+    $entities = $this->entityTypeManager()->getStorage('html_client')->loadMultiple();
     foreach ($entities as $entity) {
 
       // Load HTML data from the endpoint.
