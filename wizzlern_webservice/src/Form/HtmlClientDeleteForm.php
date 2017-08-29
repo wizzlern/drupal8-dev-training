@@ -10,6 +10,7 @@ use Drupal\Core\Url;
  * Builds the form to delete a HtmlClient.
  */
 class HtmlClientDeleteForm extends EntityConfirmFormBase {
+
   /**
    * {@inheritdoc}
    */
@@ -41,7 +42,7 @@ class HtmlClientDeleteForm extends EntityConfirmFormBase {
       $this->t('content @type: deleted @label.',
         [
           '@type' => $this->entity->bundle(),
-          '@label' => $this->entity->label()
+          '@label' => $this->entity->label(),
         ]
         )
     );

@@ -147,12 +147,12 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
       // instead of the age.
       $build['links']['#cache'] = [
         'context' => ['user'],
-        'tags' => ['user:' . $this->currentUser->id()]
+        'tags' => ['user:' . $this->currentUser->id()],
       ];
     }
     else {
       $build['empty'] = [
-        '#markup' => $this->t('Bummer, no game reviews.')
+        '#markup' => $this->t('Bummer, no game reviews.'),
       ];
     }
 
@@ -165,7 +165,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
   /**
    * Loads recent game reviews.
    *
-   * @param $count
+   * @param int $count
    *   The maximum number or games to load.
    *
    * @return \Drupal\Core\Entity\EntityInterface[]

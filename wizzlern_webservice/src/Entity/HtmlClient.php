@@ -79,7 +79,6 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
     return $this->endpoint_url;
   }
 
-
   /**
    * {@inheritdoc}
    */

@@ -13,7 +13,7 @@ abstract class HtmlProcessorBase extends PluginBase implements HtmlProcessorInte
   /**
    * SimpleHtmlDom object containing the information to be processed.
    *
-   * @var simple_html_dom
+   * @var \SimpleHtmlDom\simple_html_dom
    */
   protected $DOMObject;
 
@@ -34,7 +34,7 @@ abstract class HtmlProcessorBase extends PluginBase implements HtmlProcessorInte
   /**
    * {@inheritdoc}
    */
-  public function setDom($dom) {
+  public function setDom(simple_html_dom $dom) {
 
     $this->DOMObject = $dom;
     return $this;

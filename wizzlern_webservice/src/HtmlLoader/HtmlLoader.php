@@ -3,7 +3,6 @@
 namespace Drupal\wizzlern_webservice\HtmlLoader;
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
 use SimpleHtmlDom\simple_html_dom;
 
 /**

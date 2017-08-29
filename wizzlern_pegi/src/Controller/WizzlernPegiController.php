@@ -15,7 +15,7 @@ class WizzlernPegiController extends ControllerBase {
   /**
    * The type entity manager.
    *
-   * @var EntityTypeManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
@@ -29,7 +29,7 @@ class WizzlernPegiController extends ControllerBase {
   /**
    * Constructs a content controller.
    *
-   * @param EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity manager.
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
    *   The current user account service.

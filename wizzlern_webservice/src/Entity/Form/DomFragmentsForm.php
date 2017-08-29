@@ -12,6 +12,7 @@ use Drupal\Core\Language\Language;
  * @ingroup wizzlern_webservice
  */
 class DomFragmentsForm extends ContentEntityForm {
+
   /**
    * Overrides Drupal\Core\Entity\EntityFormController::buildForm().
    */
@@ -28,14 +29,6 @@ class DomFragmentsForm extends ContentEntityForm {
     ];
 
     return $form;
-  }
-
-  /**
-   * Overrides \Drupal\Core\Entity\EntityFormController::submit().
-   */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Build the entity object from the submitted values.
-    parent::submitForm($form, $form_state);
   }
 
   /**

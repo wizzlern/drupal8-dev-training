@@ -1,8 +1,8 @@
 <?php
 
 namespace Drupal\wizzlern_webservice\HtmlLoader;
-use SimpleHtmlDom\simple_html_dom_node;
 
+use SimpleHtmlDom\simple_html_dom_node;
 
 /**
  * HTML Loader interface.
@@ -15,7 +15,7 @@ interface HtmlLoaderInterface {
    * @param string $url
    *   URL of the web page.
    *
-   * @return simple_html_dom_node
+   * @return \SimpleHtmlDom\simple_html_dom_node
    *   DOM node object containing the web page content.
    *
    * @throws \Exception

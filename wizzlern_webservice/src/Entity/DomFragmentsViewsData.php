@@ -9,6 +9,7 @@ use Drupal\views\EntityViewsDataInterface;
  * Provides the views data for the DomFragments entity type.
  */
 class DomFragmentsViewsData extends EntityViewsData implements EntityViewsDataInterface {
+
   /**
    * {@inheritdoc}
    */

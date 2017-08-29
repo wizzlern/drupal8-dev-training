@@ -2,7 +2,6 @@
 
 namespace Drupal\wizzlern_webservice\Form;
 
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 

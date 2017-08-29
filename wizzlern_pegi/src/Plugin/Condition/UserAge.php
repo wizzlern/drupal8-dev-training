@@ -111,7 +111,7 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
 
     if (!empty($this->configuration['rating'])) {
       if (!empty($this->configuration['negate'])) {
-        return $this->t("The user's age is @condition the @rating rating",[
+        return $this->t("The user's age is @condition the @rating rating", [
           '@condition' => $condition,
           '@rating' => $rating,
         ]);

@@ -3,6 +3,7 @@
 namespace Drupal\wizzlern_webservice;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
+use SimpleHtmlDom\simple_html_dom;
 
 /**
  * Defines an interface for HTML Processor plugins.
@@ -34,7 +35,7 @@ interface HtmlProcessorInterface extends PluginInspectionInterface {
    * @return \SimpleHtmlDom\simple_html_dom
    *   The stored DOM object.
    */
-  public function setDom($dom);
+  public function setDom(simple_html_dom $dom);
 
   /**
    * Performs data processing.

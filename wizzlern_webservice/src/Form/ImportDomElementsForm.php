@@ -33,16 +33,19 @@ class ImportDomElementsForm extends FormBase {
   /**
    * The entity manager.
    *
-   * @var EntityTypeManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
   /**
    * Constructs a new Dom Elements import form.
    *
-   * @param HtmlLoaderInterface $html_loader
-   * @param HtmlProcessorInterface $html_processor_manager
-   * @param EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoaderInterface $html_loader
+   *   The HML loader.
+   * @param \Drupal\wizzlern_webservice\HtmlProcessorInterface $html_processor_manager
+   *   The HTML processor manager.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    */
   public function __construct(HtmlLoaderInterface $html_loader, HtmlProcessorInterface $html_processor_manager, EntityTypeManagerInterface $entity_type_manager) {
     $this->htmlLoader = $html_loader;
@@ -142,4 +145,5 @@ class ImportDomElementsForm extends FormBase {
       }
     }
   }
+
 }

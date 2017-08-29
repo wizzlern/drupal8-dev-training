@@ -3,8 +3,6 @@
 namespace Drupal\wizzlern_webservice;
 
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\user\EntityOwnerInterface;
 
 /**
  * Provides an interface defining a DomFragments entity.

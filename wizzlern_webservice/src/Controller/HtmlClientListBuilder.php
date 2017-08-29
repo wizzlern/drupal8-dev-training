@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityInterface;
  * Provides a listing of WizzlernWebservice.
  */
 class HtmlClientListBuilder extends ConfigEntityListBuilder {
+
   /**
    * {@inheritdoc}
    */

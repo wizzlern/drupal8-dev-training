@@ -13,6 +13,7 @@ use Drupal\Core\Access\AccessResult;
  * @see \Drupal\wizzlern_webservice\Entity\DomFragments.
  */
 class DomFragmentsAccessControlHandler extends EntityAccessControlHandler {
+
   /**
    * {@inheritdoc}
    */

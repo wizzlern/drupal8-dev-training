@@ -13,6 +13,7 @@ use Drupal\Core\Form\FormStateInterface;
  * @ingroup wizzlern_webservice
  */
 class DomFragmentsSettingsForm extends FormBase {
+
   /**
    * Returns a unique string identifying the form.
    *
@@ -34,7 +35,6 @@ class DomFragmentsSettingsForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Empty implementation of the abstract submit class.
   }
-
 
   /**
    * Define the form used for DomFragments  settings.

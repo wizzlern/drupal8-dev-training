@@ -12,6 +12,7 @@ use Drupal\Core\Url;
  * @ingroup wizzlern_webservice
  */
 class DomFragmentsDeleteForm extends ContentEntityConfirmFormBase {
+
   /**
    * {@inheritdoc}
    */
@@ -40,12 +41,10 @@ class DomFragmentsDeleteForm extends ContentEntityConfirmFormBase {
     $this->entity->delete();
 
     drupal_set_message(
-      $this->t('content @type: deleted @label.',
-        [
-          '@type' => $this->entity->bundle(),
-          '@label' => $this->entity->label()
-        ]
-        )
+      $this->t('content @type: deleted @label.', [
+        '@type' => $this->entity->bundle(),
+        '@label' => $this->entity->label(),
+      ])
     );
 
     $form_state->setRedirectUrl($this->getCancelUrl());

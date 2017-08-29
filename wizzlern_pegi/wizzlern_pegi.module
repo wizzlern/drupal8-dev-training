@@ -18,7 +18,7 @@ define('WIZZLERN_PEGI_TAXONOMY_VOCABULARY', 'pegi_rating');
 /**
  * The field that is used to reference from the game to its Pegy category.
  */
-define('WIZZLERN_GAME_PEGI_REFERENCE', 'field__ref_pegi');
+define('WIZZLERN_PEGI_GAME_REFERENCE', 'field__ref_pegi');
 
 /**
  * The Pegi taxonomy term field that contains the allowed age.
@@ -36,6 +36,9 @@ define('WIZZLERN_PEGI_FIELD_USER_AGE', 'field_user_age');
 define('WIZZLERN_PEGI_TERM_IMAGE_FIELD', 'field_pegi_image');
 
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\user\Entity\User;
 use Drupal\Core\Access\AccessResult;
 
@@ -58,7 +61,7 @@ function wizzlern_pegi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
  *
  * Alters the user login form. Removes the description from the password field.
  */
-function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function wizzlern_pegi_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
 
   // Note that &$form passes the form array by reference. The changes you to
   // $form you make here will change the actual form.
@@ -70,7 +73,7 @@ function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\Form
  *
  * Alters the user registration form. Changes the order fields.
  */
-function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function wizzlern_pegi_form_user_register_form_alter(&$form, FormStateInterface $form_state) {
 
   // The mail and name fields are grouped in 'account'. Adding field to existing
   // field groups like these may have unwanted side effects. Be careful.
@@ -94,13 +97,13 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
  *
  * @see hook_ENTITY_TYPE_access()
  */
-function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+function wizzlern_pegi_node_access(EntityInterface $entity, $operation, AccountInterface $account) {
   /** @var \Drupal\node\Entity\Node $entity */
   $access = AccessResult::neutral();
 
   // @todo Use node_access_grants for content access.
-  if ($operation == 'view' && $entity->hasField(WIZZLERN_GAME_PEGI_REFERENCE)) {
-    $pegi_entities = $entity->{WIZZLERN_GAME_PEGI_REFERENCE}->referencedEntities();
+  if ($operation == 'view' && $entity->hasField(WIZZLERN_PEGI_GAME_REFERENCE)) {
+    $pegi_entities = $entity->{WIZZLERN_PEGI_GAME_REFERENCE}->referencedEntities();
     if ($pegi_entities) {
       $allowed_age = $pegi_entities[0]->{WIZZLERN_PEGI_FIELD_ALLOWED_AGE}->value;
 
@@ -124,7 +127,7 @@ function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, 
 /**
  * Implements hook_entity_insert().
  */
-function wizzlern_pegi_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+function wizzlern_pegi_entity_insert(EntityInterface $entity) {
 
   // Invalidated the wizzlern_pegi_new_games blocks caches.
   if ($entity->bundle() == 'game') {

@@ -12,6 +12,7 @@ use Drupal\Core\Url;
  * @ingroup wizzlern_webservice
  */
 class DomFragmentsListController extends EntityListBuilder {
+
   /**
    * {@inheritdoc}
    */
