@@ -8,7 +8,7 @@
 // ==== Step 1 ====
 // Load Game review nodes and output links to the nodes.
 // - Use the custom block code \Drupal\wizzlern_pegi\Plugin\Block\NewGames.
-// - Find examples in core to load nodes using entityQuery('node').
+// - Find examples in core to load nodes using getStorage('node')->getQuery().
 // - Use an entity query to load the 5 most recent game reviews.
 // - Use the EntityInterface::toLink() method to build node links.
 // - Return an list of links in the build() method.
@@ -17,10 +17,11 @@
 
 // --- Fragments for step 1 ---
 // condition()
-// entityQuery->get()
-// entityTypeManager->loadMultiple()
+// entityTypeManager
 // execute()
-// getStorage()
+// getQuery()
+// getStorage('node')
+// loadMultiple()
 // sort()
 
 // ==== Step 2 (optional) ====

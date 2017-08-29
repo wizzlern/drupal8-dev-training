@@ -4,7 +4,6 @@ namespace Drupal\wizzlern_pegi\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Render\RendererInterface;
@@ -28,13 +27,6 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-
-  /**
-   * The entity query manager.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $entityQuery;
 
   /**
    * The renderer service.
@@ -64,18 +56,15 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    *   The plugin implementation definition.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity type manager service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   Entity query manager service.
    * @param \Drupal\Core\Render\RendererInterface $renderer
    *   The renderer service.
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
    *   The current user account service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query, RendererInterface $renderer, AccountProxyInterface $current_user) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, RendererInterface $renderer, AccountProxyInterface $current_user) {
 
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
-    $this->entityQuery = $entity_query;
     $this->renderer = $renderer;
     $this->currentUser = $current_user;
   }
@@ -91,7 +80,6 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
 
     return new static($configuration, $plugin_id, $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('entity.query'),
       $container->get('renderer'),
       $container->get('current_user')
     );
@@ -184,7 +172,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    *   Array of Game review nodes.
    */
   protected function loadGames($count = 5) {
-    $nids = $this->entityQuery->get('node')
+    $nids = $this->entityTypeManager->getStorage('node')->getQuery()
       ->condition('type', WIZZLERN_PEGI_GAME_CONTENT_TYPE)
       ->condition('status', 1)
       ->range(0, $count)

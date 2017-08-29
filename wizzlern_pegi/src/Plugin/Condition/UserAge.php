@@ -3,7 +3,7 @@
 namespace Drupal\wizzlern_pegi\Plugin\Condition;
 
 use Drupal\Core\Condition\ConditionPluginBase;
-use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -23,11 +23,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInterface {
 
   /**
-   * The entity query factory service.
+   * The entity type manager.
    *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface;
    */
-  protected $entityQuery;
+  protected $entityTypeManager;
 
   /**
    * Creates a UserAge instance.
@@ -38,12 +38,12 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   The entity query factory.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, QueryFactory $entity_query) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->entityQuery = $entity_query;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -54,7 +54,7 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('entity.query')
+      $container->get('entity_type.manager')
     );
   }
 
@@ -200,7 +200,7 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
   protected function pegiRatings() {
     $ratings = array();
 
-    $tids = $this->entityQuery->get('taxonomy_term')
+    $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', 'pegi_rating')
       ->sort('weight', 'ASC')
       ->sort('name', 'ASC')
