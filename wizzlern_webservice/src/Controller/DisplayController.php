@@ -59,7 +59,7 @@ class DisplayController extends ControllerBase {
    */
   public function receivedData() {
 
-    $items = array();
+    $items = [];
 
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
     $entities = $this->entityManager()->getStorage('html_client')->loadMultiple();
@@ -71,7 +71,7 @@ class DisplayController extends ControllerBase {
       }
       catch (\Exception $e) {
         watchdog_exception('wizzlern_webservice', $e);
-        drupal_set_message($this->t('Failed to find data at %name.', array('%name' => $entity->label())), 'error');
+        drupal_set_message($this->t('Failed to find data at %name.', ['%name' => $entity->label()]), 'error');
         break;
       }
 
@@ -83,17 +83,17 @@ class DisplayController extends ControllerBase {
         $processor = $this->htmlProcessorPluginManager->createInstance($plugin_id);
         $result = $processor->setDom($dom)->process();
         if ($result) {
-          $items[] = $this->t('@label of %name: @result', array(
+          $items[] = $this->t('@label of %name: @result', [
             '@label' => $processor->getName(),
             '%name' => $entity->label(),
             '@result' => $result,
-          ));
+          ]);
         }
         else {
-          $items[] = $this->t('No @label found for %name', array(
+          $items[] = $this->t('No @label found for %name', [
             '@label' => $processor->getName(),
             '%name' => $entity->label(),
-          ));
+          ]);
         }
       }
     }

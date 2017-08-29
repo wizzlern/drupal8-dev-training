@@ -70,7 +70,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
    *
    * @var array
    */
-  protected $processors = array();
+  protected $processors = [];
 
   /**
    * {@inheritdoc}
@@ -84,7 +84,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
    * {@inheritdoc}
    */
   public function getAllProcessors() {
-    $options = array();
+    $options = [];
 
     $processors = \Drupal::getContainer()->get('plugin.manager.html_processor')->getDefinitions();
 

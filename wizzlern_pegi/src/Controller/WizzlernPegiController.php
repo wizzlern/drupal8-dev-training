@@ -64,7 +64,7 @@ class WizzlernPegiController extends ControllerBase {
    *   Render array of page output.
    */
   public function gamesOverview() {
-    $items = array();
+    $items = [];
     $config = $this->config('wizzlern_pegi.settings');
 
     // Set the page title.
@@ -93,25 +93,25 @@ class WizzlernPegiController extends ControllerBase {
     }
     if ($items) {
       // The access control is per user, so we set a cache context for user.
-      $build['games'] = array(
+      $build['games'] = [
         '#theme' => 'item_list',
         '#items' => $items,
-        '#cache' => array(
+        '#cache' => [
           'contexts' => ['user'],
           'tags' => ['user:' . $this->currentUser->id()],
-        ),
-      );
+        ],
+      ];
 
       // Add a pager to the output.
-      $build['pager'] = array(
+      $build['pager'] = [
         '#type' => 'pager',
         '#quantity' => 4,
-      );
+      ];
     }
     else {
-      $build['empty'] = array(
+      $build['empty'] = [
         '#markup' => $this->t('Bummer, we have no game reviews for you now :('),
-      );
+      ];
     }
 
     // The cache must be invalidated when a new game is created.

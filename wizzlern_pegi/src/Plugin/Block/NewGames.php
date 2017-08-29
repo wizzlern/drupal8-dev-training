@@ -90,9 +90,9 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function defaultConfiguration() {
 
-    return array(
+    return [
       'max_items' => 5,
-    );
+    ];
   }
 
   /**
@@ -100,13 +100,13 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function blockForm($form, FormStateInterface $form_state) {
 
-    $form['max_items'] = array(
+    $form['max_items'] = [
       '#type' => 'number',
       '#title' => t('Number of games'),
       '#size' => 15,
       '#description' => t('The maximum number of games to show.'),
       '#default_value' => $this->configuration['max_items'],
-    );
+    ];
     return $form;
   }
 
@@ -135,25 +135,25 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     }
 
     if ($items) {
-      $build['links'] = array(
+      $build['links'] = [
         '#theme' => 'item_list',
         '#items' => $items,
-      );
+      ];
 
       // Add cache properties for the current user.
       // The block content varies per user and should be invalidated when the
       // account changes. The user entity does not (yet) contain this info.
       // Using tag 'user:[uid]' no longer works if we story the user's birthday
       // instead of the age.
-      $build['links']['#cache'] = array(
+      $build['links']['#cache'] = [
         'context' => ['user'],
         'tags' => ['user:' . $this->currentUser->id()]
-      );
+      ];
     }
     else {
-      $build['empty'] = array(
+      $build['empty'] = [
         '#markup' => $this->t('Bummer, no game reviews.')
-      );
+      ];
     }
 
     // The cache must be invalidated when a new game is created.

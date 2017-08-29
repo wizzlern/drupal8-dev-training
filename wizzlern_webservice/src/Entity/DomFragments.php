@@ -79,11 +79,11 @@ class DomFragments extends ContentEntityBase implements DomFragmentsInterface {
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the DomFragments entity.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'hidden',
         'type' => 'string',
         'weight' => 0,
-      ))
+      ])
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
@@ -93,31 +93,31 @@ class DomFragments extends ContentEntityBase implements DomFragmentsInterface {
     $fields['html_generator'] = BaseFieldDefinition::create('string')
       ->setLabel(t('HTML Generator'))
       ->setDescription(t('The software that generated the HTML.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'string',
         'weight' => 1,
-      ))
+      ])
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['html_language'] = BaseFieldDefinition::create('string')
       ->setLabel(t('HTML Language'))
       ->setDescription(t('The language of the HTML.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'string',
         'weight' => 2,
-      ))
+      ])
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['html_h1'] = BaseFieldDefinition::create('string')
       ->setLabel(t('HTML H1'))
       ->setDescription(t('The content of the H1 tag.'))
-      ->setDisplayOptions('view', array(
+      ->setDisplayOptions('view', [
         'label' => 'inline',
         'type' => 'string',
         'weight' => 3,
-      ))
+      ])
       ->setDisplayConfigurable('view', TRUE);
 
     return $fields;

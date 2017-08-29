@@ -21,41 +21,41 @@ class HtmlClientForm extends EntityForm {
 
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient $html_client */
     $html_client = $this->entity;
-    $form['label'] = array(
+    $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $html_client->label(),
       '#description' => $this->t('Label for the HtmlClient.'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['id'] = array(
+    $form['id'] = [
       '#type' => 'machine_name',
       '#default_value' => $html_client->id(),
-      '#machine_name' => array(
+      '#machine_name' => [
         'exists' => '\Drupal\wizzlern_webservice\Entity\HtmlClient::load',
-      ),
+      ],
       '#disabled' => !$html_client->isNew(),
-    );
+    ];
 
-    $form['endpoint_url'] = array(
+    $form['endpoint_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('URL'),
       '#maxlength' => 255,
       '#default_value' => $html_client->getEndpointUrl(),
       '#description' => $this->t('Endpoint URL.'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['processors'] = array(
+    $form['processors'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Processors'),
       '#options' => $html_client->getAllProcessors(),
       '#default_value' => $html_client->getProcessors(),
       '#description' => $this->t('Data processors that process the endpoint data.'),
       '#required' => TRUE,
-    );
+    ];
 
     return $form;
   }
@@ -68,14 +68,14 @@ class HtmlClientForm extends EntityForm {
     $status = $html_client->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label webservice.', array(
+      drupal_set_message($this->t('Saved the %label webservice.', [
         '%label' => $html_client->label(),
-      )));
+      ]));
     }
     else {
-      drupal_set_message($this->t('The %label webservice was not saved.', array(
+      drupal_set_message($this->t('The %label webservice was not saved.', [
         '%label' => $html_client->label(),
-      )));
+      ]));
     }
     $form_state->setRedirectUrl($html_client->urlInfo('collection'));
   }

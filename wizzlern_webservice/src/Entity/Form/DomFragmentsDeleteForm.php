@@ -16,7 +16,7 @@ class DomFragmentsDeleteForm extends ContentEntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return t('Are you sure you want to delete entity %name?', array('%name' => $this->entity->label()));
+    return t('Are you sure you want to delete entity %name?', ['%name' => $this->entity->label()]);
   }
 
   /**

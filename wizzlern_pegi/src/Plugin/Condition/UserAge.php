@@ -63,21 +63,21 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
 
-    $form['condition'] = array(
+    $form['condition'] = [
       '#type' => 'select',
       '#title' => $this->t("The user's age is ..."),
       '#default_value' => $this->configuration['condition'],
       '#options' => $this->logicalConditions(),
-    );
-    $options = array('0' => $this->t('Not restricted'));
+    ];
+    $options = ['0' => $this->t('Not restricted')];
     $options += $this->pegiRatings();
-    $form['rating'] = array(
+    $form['rating'] = [
       '#type' => 'select',
       '#title' => $this->t('Pegi rating'),
       '#default_value' => $this->configuration['rating'],
       '#options' => $options,
       '#description' => $this->t('By selecting a value enable this condition.'),
-    );
+    ];
     return parent::buildConfigurationForm($form, $form_state);
   }
 
@@ -85,10 +85,10 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
-    return array(
+    return [
       'rating' => '0',
       'condition' => '<=',
-    ) + parent::defaultConfiguration();
+    ] + parent::defaultConfiguration();
   }
 
   /**
@@ -111,16 +111,16 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
 
     if (!empty($this->configuration['rating'])) {
       if (!empty($this->configuration['negate'])) {
-        return $this->t("The user's age is @condition the @rating rating", array(
+        return $this->t("The user's age is @condition the @rating rating",[
           '@condition' => $condition,
           '@rating' => $rating,
-        ));
+        ]);
       }
       else {
-        return $this->t("The user's age is not @condition the @rating rating", array(
+        return $this->t("The user's age is not @condition the @rating rating", [
           '@condition' => $condition,
           '@rating' => $rating,
-        ));
+        ]);
       }
     }
   }
@@ -168,10 +168,10 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    * {@inheritdoc}
    */
   public function calculateDependencies() {
-    return array(
-      'content' => array('taxonomy:' . WIZZLERN_PEGI_TAXONOMY_VOCABULARY),
-      'module' => array('taxonomy'),
-    );
+    return [
+      'content' => ['taxonomy:' . WIZZLERN_PEGI_TAXONOMY_VOCABULARY],
+      'module' => ['taxonomy'],
+    ];
   }
 
   /**
@@ -182,13 +182,13 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    */
   protected function logicalConditions() {
 
-    return array(
+    return [
       '<' => $this->t('less than'),
       '<=' => $this->t('less or equal to'),
       '==' => $this->t('equal to'),
       '>=' => $this->t('higher or equal to'),
       '>' => $this->t('higher than'),
-    );
+    ];
   }
 
   /**
@@ -198,7 +198,7 @@ class UserAge extends ConditionPluginBase implements ContainerFactoryPluginInter
    *   Array of Pegi rating names keyed by their taxonomy term id.
    */
   protected function pegiRatings() {
-    $ratings = array();
+    $ratings = [];
 
     $tids = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
       ->condition('vid', 'pegi_rating')

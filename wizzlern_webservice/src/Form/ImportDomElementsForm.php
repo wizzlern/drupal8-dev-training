@@ -101,7 +101,7 @@ class ImportDomElementsForm extends FormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $values = array();
+    $values = [];
     // @todo Change architecture. Make service? Use protected function?
     // @todo Redirect to wizzlern_webservice.html_client.data?
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
@@ -114,7 +114,7 @@ class ImportDomElementsForm extends FormBase {
       }
       catch (\Exception $e) {
         watchdog_exception('wizzlern_webservice', $e);
-        drupal_set_message($this->t('Failed to find data at %name.', array('%name' => $entity->label())), 'error');
+        drupal_set_message($this->t('Failed to find data at %name.', ['%name' => $entity->label()]), 'error');
         break;
       }
 

@@ -30,9 +30,7 @@ class DomFragmentsListController extends EntityListBuilder {
     $row['name'] = \Drupal::l(
       $this->getLabel($entity),
       new Url(
-        'entity.dom_fragments.edit_form', array(
-          'dom_fragments' => $entity->id(),
-        )
+        'entity.dom_fragments.edit_form', ['dom_fragments' => $entity->id()]
       )
     );
     return $row + parent::buildRow($entity);

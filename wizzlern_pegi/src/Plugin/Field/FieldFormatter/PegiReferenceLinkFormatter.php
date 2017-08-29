@@ -78,9 +78,9 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
    * {@inheritdoc}
    */
   public static function defaultSettings() {
-    return array(
+    return [
       'image_style' => '',
-    ) + parent::defaultSettings();
+    ] + parent::defaultSettings();
   }
 
   /**
@@ -88,13 +88,13 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $image_styles = image_style_options(FALSE);
-    $element['image_style'] = array(
+    $element['image_style'] = [
       '#title' => t('Image style'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('image_style'),
       '#empty_option' => t('None (original image)'),
       '#options' => $image_styles,
-    );
+    ];
 
     return $element;
   }
@@ -103,7 +103,7 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
    * {@inheritdoc}
    */
   public function settingsSummary() {
-    $summary = array();
+    $summary = [];
 
     $image_styles = image_style_options(FALSE);
     // Unset possible 'No defined styles' option.
@@ -112,7 +112,7 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
     // their styles in code.
     $image_style_setting = $this->getSetting('image_style');
     if (isset($image_styles[$image_style_setting])) {
-      $summary[] = t('Image style: @style', array('@style' => $image_styles[$image_style_setting]));
+      $summary[] = t('Image style: @style', ['@style' => $image_styles[$image_style_setting]]);
     }
     else {
       $summary[] = t('Original image');
@@ -125,7 +125,7 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $elements = array();
+    $elements = [];
 
     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
       /** @var \Drupal\image\Plugin\Field\FieldType\ImageItem $image */
@@ -134,7 +134,7 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
       $image_style = $this->getSetting('image_style');
 
       // Collect cache tags to be added for each item in the field.
-      $cache_tags = array();
+      $cache_tags = [];
       if (!empty($image_style_setting)) {
         /** @var \Drupal\image\Entity\ImageStyle $image_style_entity */
         $image_style_entity = $this->entityTypeManager
@@ -144,23 +144,23 @@ class PegiReferenceLinkFormatter extends EntityReferenceFormatterBase implements
       }
 
       if (isset($image_style)) {
-        $image = array(
+        $image = [
           '#theme' => 'image_formatter',
           '#item' => $item,
           '#image_style' => $this->getSetting('image_style'),
-          '#cache' => array(
+          '#cache' => [
             'tags' => $cache_tags,
-          ),
-        );
+          ],
+        ];
 
-        $elements[] = array(
+        $elements[] = [
           '#type' => 'inline_template',
           '#template' => '{{ image }}<span class="pegi-link-all">{{ link }}</span>',
-          '#context' => array(
+          '#context' => [
             'image' => $image,
             'link' => $entity->toLink($this->t('All games with this rating')),
-          ),
-        );
+          ],
+        ];
       }
     }
 

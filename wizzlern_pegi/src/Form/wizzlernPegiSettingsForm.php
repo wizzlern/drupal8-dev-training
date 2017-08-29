@@ -30,19 +30,19 @@ class WizzlernPegiSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('wizzlern_pegi.settings');
 
-    $form['games_page_title'] = array(
+    $form['games_page_title'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Games page title'),
       '#default_value' => $config->get('games_page_title'),
-    );
+    ];
 
-    $form['games_per_page'] = array(
+    $form['games_per_page'] = [
       '#type' => 'number',
       '#title' => $this->t('Games per page'),
       '#description' => $this->t('The maximum number of game reviews per page'),
       '#default_value' => $config->get('games_per_page'),
       '#min' => 1,
-    );
+    ];
 
     return parent::buildForm($form, $form_state);
   }
