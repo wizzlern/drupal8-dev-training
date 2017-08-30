@@ -1,0 +1,7 @@
+services:
+  wizzlern_crawler.html_loader:
+    class: Drupal\wizzlern_crawler\HtmlLoader\HtmlLoader
+    arguments: ['@http_client']
+  plugin.manager.html_processor:
+    class: Drupal\wizzlern_crawler\HtmlProcessorManager
+    parent: default_plugin_manager

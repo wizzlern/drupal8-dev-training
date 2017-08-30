@@ -1,7 +1,0 @@
-services:
-  wizzlern_webservice.html_loader:
-    class: Drupal\wizzlern_webservice\HtmlLoader\HtmlLoader
-    arguments: ['@http_client']
-  plugin.manager.html_processor:
-    class: Drupal\wizzlern_webservice\HtmlProcessorManager
-    parent: default_plugin_manager

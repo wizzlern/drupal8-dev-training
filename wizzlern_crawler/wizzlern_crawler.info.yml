@@ -1,0 +1,5 @@
+name: Wizzlern crawler
+type: module
+description: An HTML crawler to be used during the Wizzlern Drupal 8 module development training.
+core: 8.x
+package: Wizzlern

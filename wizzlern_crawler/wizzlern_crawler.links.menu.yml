@@ -1,0 +1,18 @@
+wizzlern_crawler.entity.endpoint:
+  title: 'Wizzlern crawler'
+  description: 'Configure the Wizzlern crawler endpoints.'
+  route_name: entity.endpoint.collection
+  parent: system.admin_config_services
+
+# DomFragments menu items definition
+entity.dom_fragments.collection:
+  title: 'DomFragments: Listing'
+  route_name: entity.dom_fragments.collection
+  description: 'List DomFragments'
+
+dom_fragments.admin.structure.settings:
+  title: DomFragments Settings
+  description: 'Configure DomFragments entity'
+  route_name:  dom_fragments.settings
+  parent: system.admin_structure
+
