@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Form\EndpointDeleteForm.
- */
-
 namespace Drupal\wizzlern_webservice\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
@@ -15,11 +10,12 @@ use Drupal\Core\Url;
  * Builds the form to delete a Endpoint.
  */
 class EndpointDeleteForm extends EntityConfirmFormBase {
+
   /**
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete %name?', array('%name' => $this->entity->label()));
+    return $this->t('Are you sure you want to delete %name?', ['%name' => $this->entity->label()]);
   }
 
   /**
@@ -46,7 +42,7 @@ class EndpointDeleteForm extends EntityConfirmFormBase {
       $this->t('content @type: deleted @label.',
         [
           '@type' => $this->entity->bundle(),
-          '@label' => $this->entity->label()
+          '@label' => $this->entity->label(),
         ]
         )
     );

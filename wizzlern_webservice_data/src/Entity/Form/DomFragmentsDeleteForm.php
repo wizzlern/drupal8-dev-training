@@ -1,35 +1,36 @@
 <?php
 
-namespace Drupal\wizzlern_webservice\Form;
+namespace Drupal\wizzlern_webservice\Entity\Form;
 
-use Drupal\Core\Entity\EntityConfirmFormBase;
+use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete a HtmlClient.
+ * Provides a form for deleting a DomFragments entity.
+ *
+ * @ingroup wizzlern_webservice
  */
-class HtmlClientDeleteForm extends EntityConfirmFormBase {
-
+class DomFragmentsDeleteForm extends ContentEntityConfirmFormBase {
   /**
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete %name?', ['%name' => $this->entity->label()]);
+    return t('Are you sure you want to delete entity %name?', array('%name' => $this->entity->label()));
   }
 
   /**
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.html_client.collection');
+    return new Url('entity.dom_fragments.collection');
   }
 
   /**
    * {@inheritdoc}
    */
   public function getConfirmText() {
-    return $this->t('Delete');
+    return t('Delete');
   }
 
   /**
@@ -42,7 +43,7 @@ class HtmlClientDeleteForm extends EntityConfirmFormBase {
       $this->t('content @type: deleted @label.',
         [
           '@type' => $this->entity->bundle(),
-          '@label' => $this->entity->label(),
+          '@label' => $this->entity->label()
         ]
         )
     );

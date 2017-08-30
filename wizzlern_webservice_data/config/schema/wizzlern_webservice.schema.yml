@@ -1,6 +1,6 @@
-wizzlern_webservice.endpoint.*:
+wizzlern_webservice.html_client.*:
   type: config_entity
-  label: 'Endpoint config'
+  label: 'HtmlClient config'
   mapping:
     id:
       type: string

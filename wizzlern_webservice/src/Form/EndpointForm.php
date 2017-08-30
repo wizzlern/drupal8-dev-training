@@ -1,13 +1,7 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Form\EndpointForm.
- */
-
 namespace Drupal\wizzlern_webservice\Form;
 
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -24,26 +18,43 @@ class EndpointForm extends EntityForm {
   public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
+    /** @var \Drupal\wizzlern_webservice\Entity\Endpoint $endpoint */
     $endpoint = $this->entity;
-    $form['label'] = array(
+    $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $endpoint->label(),
-      '#description' => $this->t("Label for the Endpoint."),
+      '#description' => $this->t('Label for the Endpoint.'),
       '#required' => TRUE,
-    );
+    ];
 
-    $form['id'] = array(
+    $form['id'] = [
       '#type' => 'machine_name',
       '#default_value' => $endpoint->id(),
-      '#machine_name' => array(
+      '#machine_name' => [
         'exists' => '\Drupal\wizzlern_webservice\Entity\Endpoint::load',
-      ),
+      ],
       '#disabled' => !$endpoint->isNew(),
-    );
+    ];
 
-    /* You will need additional form elements for your custom properties. */
+    $form['endpoint_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('URL'),
+      '#maxlength' => 255,
+      '#default_value' => $endpoint->getUrl(),
+      '#description' => $this->t('Endpoint URL.'),
+      '#required' => TRUE,
+    ];
+
+    $form['processors'] = [
+      '#type' => 'checkboxes',
+      '#title' => $this->t('Processors'),
+      '#options' => $endpoint->getAllProcessors(),
+      '#default_value' => $endpoint->getConfiguredProcessors(),
+      '#description' => $this->t('Data processors that process the endpoint data.'),
+      '#required' => TRUE,
+    ];
 
     return $form;
   }
@@ -56,16 +67,16 @@ class EndpointForm extends EntityForm {
     $status = $endpoint->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label Endpoint.', array(
+      drupal_set_message($this->t('Saved the %label webservice.', [
         '%label' => $endpoint->label(),
-      )));
+      ]));
     }
     else {
-      drupal_set_message($this->t('The %label Endpoint was not saved.', array(
+      drupal_set_message($this->t('The %label webservice was not saved.', [
         '%label' => $endpoint->label(),
-      )));
+      ]));
     }
-    $form_state->setRedirectUrl($endpoint->urlInfo('collection'));
+    $form_state->setRedirectUrl($endpoint->toUrl('collection'));
   }
 
 }

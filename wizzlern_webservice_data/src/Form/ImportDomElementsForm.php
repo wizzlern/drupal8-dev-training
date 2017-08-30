@@ -33,19 +33,16 @@ class ImportDomElementsForm extends FormBase {
   /**
    * The entity manager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @var EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
   /**
    * Constructs a new Dom Elements import form.
    *
-   * @param \Drupal\wizzlern_webservice\HtmlLoader\HtmlLoaderInterface $html_loader
-   *   The HML loader.
-   * @param \Drupal\wizzlern_webservice\HtmlProcessorInterface $html_processor_manager
-   *   The HTML processor manager.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager.
+   * @param HtmlLoaderInterface $html_loader
+   * @param HtmlProcessorInterface $html_processor_manager
+   * @param EntityTypeManagerInterface $entity_type_manager
    */
   public function __construct(HtmlLoaderInterface $html_loader, HtmlProcessorInterface $html_processor_manager, EntityTypeManagerInterface $entity_type_manager) {
     $this->htmlLoader = $html_loader;
@@ -104,25 +101,25 @@ class ImportDomElementsForm extends FormBase {
    *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $values = [];
+    $values = array();
     // @todo Change architecture. Make service? Use protected function?
-    // @todo Redirect to wizzlern_webservice.endpoint.data?
-    /** @var \Drupal\wizzlern_webservice\Entity\Endpoint[] $entities */
-    $entities = $this->entityTypeManager->getStorage('endpoint')->loadMultiple();
+    // @todo Redirect to wizzlern_webservice.html_client.data?
+    /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient[] $entities */
+    $entities = $this->entityTypeManager->getStorage('html_client')->loadMultiple();
     foreach ($entities as $entity) {
 
       // Load HTML data from the endpoint.
       try {
-        $dom = $this->htmlLoader->loadDom($entity->getUrl());
+        $dom = $this->htmlLoader->loadDom($entity->getEndpointUrl());
       }
       catch (\Exception $e) {
         watchdog_exception('wizzlern_webservice', $e);
-        drupal_set_message($this->t('Failed to find data at %name.', ['%name' => $entity->label()]), 'error');
+        drupal_set_message($this->t('Failed to find data at %name.', array('%name' => $entity->label())), 'error');
         break;
       }
 
       // Execute processor plugins on the HTML data.
-      foreach ($entity->getConfiguredProcessors() as $plugin_id) {
+      foreach ($entity->getProcessors() as $plugin_id) {
         $result = NULL;
 
         // Load and execute HTML processor plugin.
@@ -145,5 +142,4 @@ class ImportDomElementsForm extends FormBase {
       }
     }
   }
-
 }

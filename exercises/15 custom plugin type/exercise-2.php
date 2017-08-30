@@ -14,7 +14,7 @@
 // - Add a tab to the page.
 
 // ==== Step 2 ====
-// Add a dedicated permission to the HtmlClient configuration entity.
+// Add a dedicated permission to the Endpoint configuration entity.
 // - Create a permission 'Administer Wizzlern webservice'.
 // - Use the permission for administration of the content entity.
 // - Use the permission for the page too.

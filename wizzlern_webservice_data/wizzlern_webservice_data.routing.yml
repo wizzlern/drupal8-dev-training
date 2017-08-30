@@ -1,36 +1,36 @@
-entity.endpoint.collection:
+entity.html_client.collection:
   path: '/admin/config/services/wizzlern_webservice'
   defaults:
-    _entity_list: 'endpoint'
+    _entity_list: 'html_client'
     _title: 'Wizzlern webservice'
   requirements:
     _permission: 'administer wizzlern webservice'
 
-entity.endpoint.add_form:
+entity.html_client.add_form:
   path: '/admin/config/services/wizzlern_webservice/add'
   defaults:
-    _entity_form: 'endpoint.add'
+    _entity_form: 'html_client.add'
     _title: 'Add webservice'
   requirements:
     _permission: 'administer wizzlern webservice'
 
-entity.endpoint.edit_form:
-  path: '/admin/config/services/wizzlern_webservice/{endpoint}'
+entity.html_client.edit_form:
+  path: '/admin/config/services/wizzlern_webservice/{html_client}'
   defaults:
-    _entity_form: 'endpoint.edit'
+    _entity_form: 'html_client.edit'
     _title: 'Edit webservice'
   requirements:
     _permission: 'administer wizzlern webservice'
 
-entity.endpoint.delete_form:
-  path: '/admin/config/services/wizzlern_webservice/{endpoint}/delete'
+entity.html_client.delete_form:
+  path: '/admin/config/services/wizzlern_webservice/{html_client}/delete'
   defaults:
-    _entity_form: 'endpoint.delete'
+    _entity_form: 'html_client.delete'
     _title: 'Delete webservice'
   requirements:
     _permission: 'administer wizzlern webservice'
 
-wizzlern_webservice.endpoint.data:
+wizzlern_webservice.html_client.data:
   path: '/admin/config/services/wizzlern_webservice/data'
   defaults:
     _controller: '\Drupal\wizzlern_webservice\Controller\DisplayController::receivedData'

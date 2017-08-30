@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\wizzlern_webservice\HtmlClientInterface.
+ * Contains Drupal\wizzlern_webservice\EndpointInterface.
  */
 
 namespace Drupal\wizzlern_webservice;
@@ -10,9 +10,9 @@ namespace Drupal\wizzlern_webservice;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
 /**
- * Provides an interface defining a HtmlClient entity.
+ * Provides an interface defining a Endpoint entity.
  */
-interface HtmlClientInterface extends ConfigEntityInterface {
+interface EndpointInterface extends ConfigEntityInterface {
   // Add get/set methods for your configuration properties here.
 
 }

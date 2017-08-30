@@ -2,6 +2,7 @@
 
 namespace Drupal\wizzlern_webservice\Form;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -20,41 +21,41 @@ class HtmlClientForm extends EntityForm {
 
     /** @var \Drupal\wizzlern_webservice\Entity\HtmlClient $html_client */
     $html_client = $this->entity;
-    $form['label'] = [
+    $form['label'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
       '#default_value' => $html_client->label(),
       '#description' => $this->t('Label for the HtmlClient.'),
       '#required' => TRUE,
-    ];
+    );
 
-    $form['id'] = [
+    $form['id'] = array(
       '#type' => 'machine_name',
       '#default_value' => $html_client->id(),
-      '#machine_name' => [
+      '#machine_name' => array(
         'exists' => '\Drupal\wizzlern_webservice\Entity\HtmlClient::load',
-      ],
+      ),
       '#disabled' => !$html_client->isNew(),
-    ];
+    );
 
-    $form['endpoint_url'] = [
+    $form['endpoint_url'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('URL'),
       '#maxlength' => 255,
       '#default_value' => $html_client->getEndpointUrl(),
       '#description' => $this->t('Endpoint URL.'),
       '#required' => TRUE,
-    ];
+    );
 
-    $form['processors'] = [
+    $form['processors'] = array(
       '#type' => 'checkboxes',
       '#title' => $this->t('Processors'),
       '#options' => $html_client->getAllProcessors(),
       '#default_value' => $html_client->getProcessors(),
       '#description' => $this->t('Data processors that process the endpoint data.'),
       '#required' => TRUE,
-    ];
+    );
 
     return $form;
   }
@@ -67,16 +68,16 @@ class HtmlClientForm extends EntityForm {
     $status = $html_client->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label webservice.', [
+      drupal_set_message($this->t('Saved the %label webservice.', array(
         '%label' => $html_client->label(),
-      ]));
+      )));
     }
     else {
-      drupal_set_message($this->t('The %label webservice was not saved.', [
+      drupal_set_message($this->t('The %label webservice was not saved.', array(
         '%label' => $html_client->label(),
-      ]));
+      )));
     }
-    $form_state->setRedirectUrl($html_client->toUrl('collection'));
+    $form_state->setRedirectUrl($html_client->urlInfo('collection'));
   }
 
 }

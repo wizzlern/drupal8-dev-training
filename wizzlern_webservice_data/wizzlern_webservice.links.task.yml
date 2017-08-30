@@ -1,12 +1,12 @@
-entity.endpoint.collection:
+entity.html_client.collection:
   title: 'List'
-  route_name: entity.endpoint.collection
-  base_route: entity.endpoint.collection
+  route_name: entity.html_client.collection
+  base_route: entity.html_client.collection
 
-wizzlern_webservice.endpoint.data:
+wizzlern_webservice.html_client.data:
   title: 'Data'
-  route_name: wizzlern_webservice.endpoint.data
-  base_route: entity.endpoint.collection
+  route_name: wizzlern_webservice.html_client.data
+  base_route: entity.html_client.collection
 
 # DomFragments routing definition
 dom_fragments.settings_tab:

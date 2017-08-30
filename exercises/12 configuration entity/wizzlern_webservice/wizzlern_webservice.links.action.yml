@@ -1,6 +1,6 @@
-entity.html_client.add_form:
-  route_name: 'entity.html_client.add_form'
-  title: 'Add HtmlClient'
+entity.endpoint.add_form:
+  route_name: 'entity.endpoint.add_form'
+  title: 'Add Endpoint'
   appears_on:
-    - entity.html_client.collection
+    - entity.endpoint.collection
 

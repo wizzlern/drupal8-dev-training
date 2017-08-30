@@ -4,23 +4,23 @@ namespace Drupal\wizzlern_webservice\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\wizzlern_webservice\HtmlClientInterface;
+use Drupal\wizzlern_webservice\EndpointInterface;
 
 /**
- * Defines the HtmlClient entity.
+ * Defines the Endpoint entity.
  *
  * @ConfigEntityType(
- *   id = "html_client",
- *   label = @Translation("HTML webservice client"),
+ *   id = "endpoint",
+ *   label = @Translation("HTML eindpoint"),
  *   handlers = {
- *     "list_builder" = "Drupal\wizzlern_webservice\Controller\HtmlClientListBuilder",
+ *     "list_builder" = "Drupal\wizzlern_webservice\Controller\EndpointListBuilder",
  *     "form" = {
- *       "add" = "Drupal\wizzlern_webservice\Form\HtmlClientForm",
- *       "edit" = "Drupal\wizzlern_webservice\Form\HtmlClientForm",
- *       "delete" = "Drupal\wizzlern_webservice\Form\HtmlClientDeleteForm"
+ *       "add" = "Drupal\wizzlern_webservice\Form\EndpointForm",
+ *       "edit" = "Drupal\wizzlern_webservice\Form\EndpointForm",
+ *       "delete" = "Drupal\wizzlern_webservice\Form\EndpointDeleteForm"
  *     }
  *   },
- *   config_prefix = "html_client",
+ *   config_prefix = "endpoint",
  *   admin_permission = "administer wizzlern webservice",
  *   entity_keys = {
  *     "id" = "id",
@@ -28,8 +28,8 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "edit-form" = "/admin/config/services/wizzlern_webservice/{html_client}",
- *     "delete-form" = "/admin/config/services/wizzlern_webservice/{html_client}/delete",
+ *     "edit-form" = "/admin/config/services/wizzlern_webservice/{endpoint}",
+ *     "delete-form" = "/admin/config/services/wizzlern_webservice/{endpoint}/delete",
  *     "collection" = "/admin/config/services/wizzlern_webservice"
  *   },
  *   config_export = {
@@ -40,7 +40,7 @@ use Drupal\wizzlern_webservice\HtmlClientInterface;
  *   }
  * )
  */
-class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
+class Endpoint extends ConfigEntityBase implements EndpointInterface {
 
   use StringTranslationTrait;
 
@@ -75,7 +75,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   /**
    * {@inheritdoc}
    */
-  public function getEndpointUrl() {
+  public function getUrl() {
     return $this->endpoint_url;
   }
 
@@ -96,7 +96,7 @@ class HtmlClient extends ConfigEntityBase implements HtmlClientInterface {
   /**
    * {@inheritdoc}
    */
-  public function getProcessors() {
+  public function getConfiguredProcessors() {
     return array_filter($this->processors);
   }
 

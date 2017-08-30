@@ -8,13 +8,13 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Provides a listing of WizzlernWebservice.
  */
-class HtmlClientListBuilder extends ConfigEntityListBuilder {
+class EndpointListBuilder extends ConfigEntityListBuilder {
 
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('Webservice');
+    $header['label'] = $this->t('Endpoint');
     $header['id'] = $this->t('Machine name');
     $header['url'] = $this->t('URL');
     return $header + parent::buildHeader();
@@ -25,10 +25,10 @@ class HtmlClientListBuilder extends ConfigEntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
 
-    /** @var \Drupal\wizzlern_webservice\HtmlClientInterface $entity */
+    /** @var \Drupal\wizzlern_webservice\EndpointInterface $entity */
     $row['label'] = $entity->label();
     $row['id'] = $entity->id();
-    $row['url'] = $entity->getEndpointUrl();
+    $row['url'] = $entity->getUrl();
     return $row + parent::buildRow($entity);
   }
 

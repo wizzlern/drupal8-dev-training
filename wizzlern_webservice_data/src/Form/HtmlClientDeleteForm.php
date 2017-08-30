@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\wizzlern_webservice\Form\EndpointDeleteForm.
- */
-
 namespace Drupal\wizzlern_webservice\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
@@ -12,9 +7,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete a Endpoint.
+ * Builds the form to delete a HtmlClient.
  */
-class EndpointDeleteForm extends EntityConfirmFormBase {
+class HtmlClientDeleteForm extends EntityConfirmFormBase {
   /**
    * {@inheritdoc}
    */
@@ -26,7 +21,7 @@ class EndpointDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.endpoint.collection');
+    return new Url('entity.html_client.collection');
   }
 
   /**
