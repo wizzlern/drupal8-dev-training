@@ -2,7 +2,7 @@
 
 /**
  * Contains exercises to create a custom block with recent game reviews.
- * Estimated time: ?? min.
+ * Estimated time: 60 min.
  */
 
 // ==== Step 1 ====

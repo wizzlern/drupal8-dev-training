@@ -1,0 +1,3 @@
+services:
+  wizzlern_crawler.html_loader:
+    # see exercise.php

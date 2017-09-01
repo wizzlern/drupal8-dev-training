@@ -1,0 +1,12 @@
+wizzlern_crawler.endpoint.*:
+  type: config_entity
+  label: 'Endpoint config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

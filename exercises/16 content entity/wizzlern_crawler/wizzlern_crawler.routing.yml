@@ -1,0 +1,48 @@
+# DomFragments routing definition
+entity.dom_fragments.canonical:
+  path: '/admin/dom_fragments/{dom_fragments}'
+  defaults:
+    _entity_view: 'dom_fragments'
+    _title: 'DomFragments Content'
+  requirements:
+    _entity_access: 'dom_fragments.view'
+
+entity.dom_fragments.collection:
+  path: '/admin/dom_fragments'
+  defaults:
+    _entity_list: 'dom_fragments'
+    _title: 'DomFragments List'
+  requirements:
+    _permission: 'view DomFragments entity'
+
+entity.dom_fragments.add_form:
+  path: '/admin/dom_fragments/add'
+  defaults:
+    _entity_form: dom_fragments.add
+    _title: 'Add DomFragments'
+  requirements:
+    _entity_create_access: 'dom_fragments'
+
+entity.dom_fragments.edit_form:
+  path: '/admin/dom_fragments/{dom_fragments}/edit'
+  defaults:
+    _entity_form: dom_fragments.edit
+    _title: 'Edit DomFragments'
+  requirements:
+    _entity_access: 'dom_fragments.edit'
+
+entity.dom_fragments.delete_form:
+  path: '/admin/dom_fragments/{dom_fragments}/delete'
+  defaults:
+    _entity_form: dom_fragments.delete
+    _title: 'Delete DomFragments'
+  requirements:
+    _entity_access: 'dom_fragments.delete'
+
+dom_fragments.settings:
+  path: 'admin/structure/dom_fragments'
+  defaults:
+   _form: '\Drupal\wizzlern_crawler\Entity\Form\DomFragmentsSettingsForm'
+   _title: 'DomFragments Settings'
+  requirements:
+    _permission: 'administer DomFragments entity'

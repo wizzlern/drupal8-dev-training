@@ -6,13 +6,22 @@
  */
 
 // ==== Step 1 ====
-// Define a webservice that fetches html data.
-// - Determine how Drupal fetches html data.
-// - Use the wizzlern_webservice.services.yml file provided in this exercise.
-// - Define a endpoint service in the wizzlern_webservice.services.yml file
-//   that loads and processes html data using Drupal core's http client. Use
-//   the EndpointApi class for this service.
+// Define a service that fetches html data.
+// - Determine how Drupal performs an html get request.
+// - Use the wizzlern_crawler.services.yml file provided in this exercise, and
+//   the fragments below.
+// - Define a service in the wizzlern_crawler.services.yml file that loads and
+//   processes html data using Drupal core's http client. Use the HtmlLoader
+//   class that is provided in this exercise.
 // - Note that this service requires the core http client.
+
+// --- Fragments for step 1 ---
+// - arguments
+// - class
+// - Drupal\wizzlern_crawler\HtmlLoader\HtmlLoader
+// - http_client
+// - services
+// - wizzlern_crawler.html_loader
 
 // ==== Step 2 ====
 // Create a test page that will show the fetched data.
@@ -22,7 +31,7 @@
 
 // ==== Step 3 ====
 // Get the DOM of the html data.
-// - Use the files in the src/ClientApi folder provided in this exercise.
-// - Add a constructor to load the service(s) this class requires.
-// - Implement EndpointApi::loadDom(). Note that the interface provides the
-//   essential details for the method.
+// - Use the DOM parser from the previous exercise.
+// - Add a constructor to load the parser.
+// - Implement HtmlLoader::loadDom(). Note that the interface already contains
+//   the defintion of this method.

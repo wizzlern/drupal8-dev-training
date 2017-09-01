@@ -9,7 +9,7 @@
 // Create a backend page that displays the processed HTML data.
 // - Use the test page from exercise '14 service'. Change it into a diagnostic
 //   page that displays the resulting data returned by the HTML processors.
-//   URL: /admin/config/services/wizzlern_webservice/data
+//   URL: /admin/config/services/wizzlern_crawler/data
 //   Title: Dom Data
 // - Add a tab to the page.
 

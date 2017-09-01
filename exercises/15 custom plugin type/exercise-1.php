@@ -11,9 +11,9 @@
 // webservice client. The input is the full HTML response, the returned value
 // is a string.
 // - Create a plugin manager for annotation type plugins. This includes:
-//   - Annotation definition class (extends Plugin).
+//   - Annotation definition class (extends Drupal\Component\Annotation\Plugin).
 //   - Plugin manager and its interface (class: HtmlProcessor;
 //     name: html_processor).
-//   - Plugin base class (extends PluginBase)
-//   Either use Drupal Console, copy an example from core or copy the files from
-//   wizzlern_webservice/* in this folder.
+//   - Plugin base class (extends Drupal\Component\Plugin\PluginBase)
+// - Either use Drupal Console or copy an the files from wizzlern_crawler/* in
+//   this folder.
