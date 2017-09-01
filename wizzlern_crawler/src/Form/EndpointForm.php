@@ -66,15 +66,17 @@ class EndpointForm extends EntityForm {
     $endpoint = $this->entity;
     $status = $endpoint->save();
 
-    if ($status) {
-      drupal_set_message($this->t('Saved the %label endpoint.', [
-        '%label' => $endpoint->label(),
-      ]));
-    }
-    else {
-      drupal_set_message($this->t('The %label endpoint was not saved.', [
-        '%label' => $endpoint->label(),
-      ]));
+    switch ($status) {
+      case SAVED_NEW:
+        drupal_set_message($this->t('Created the %label Endpoint.', [
+          '%label' => $endpoint->label(),
+        ]));
+        break;
+
+      default:
+        drupal_set_message($this->t('Saved the %label Endpoint.', [
+          '%label' => $endpoint->label(),
+        ]));
     }
     $form_state->setRedirectUrl($endpoint->toUrl('collection'));
   }

@@ -4,7 +4,11 @@ wizzlern_crawler.entity.endpoint:
   route_name: entity.endpoint.collection
   parent: system.admin_config_services
 
-# DomFragments menu items definition
+entity.endpoint.collection:
+  title: 'Endpoint: Listing'
+  route_name: entity.endpoint.collection
+  description: 'List Endpoints'
+
 entity.dom_fragments.collection:
   title: 'DomFragments: Listing'
   route_name: entity.dom_fragments.collection

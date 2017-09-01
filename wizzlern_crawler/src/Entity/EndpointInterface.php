@@ -5,7 +5,7 @@ namespace Drupal\wizzlern_crawler\Entity;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 
 /**
- * Provides an interface defining a Endpoint entity.
+ * Provides an interface for defining an Endpoint entity.
  */
 interface EndpointInterface extends ConfigEntityInterface {
 

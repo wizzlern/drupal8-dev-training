@@ -10,7 +10,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  *
  * @ConfigEntityType(
  *   id = "endpoint",
- *   label = @Translation("HTML endpoint"),
+ *   label = @Translation("Crawler endpoint"),
  *   handlers = {
  *     "list_builder" = "Drupal\wizzlern_crawler\EndpointListBuilder",
  *     "form" = {
@@ -27,6 +27,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  *     "uuid" = "uuid"
  *   },
  *   links = {
+ *     "add-form" = "/admin/config/services/wizzlern_crawler/add",
  *     "edit-form" = "/admin/config/services/wizzlern_crawler/{endpoint}",
  *     "delete-form" = "/admin/config/services/wizzlern_crawler/{endpoint}/delete",
  *     "collection" = "/admin/config/services/wizzlern_crawler"
@@ -44,21 +45,21 @@ class Endpoint extends ConfigEntityBase implements EndpointInterface {
   use StringTranslationTrait;
 
   /**
-   * The HTML endpoint ID.
+   * The Crawler endpoint ID.
    *
    * @var string
    */
   protected $id;
 
   /**
-   * The HTML endpoint label.
+   * The Crawler endpoint label.
    *
    * @var string
    */
   protected $label;
 
   /**
-   * The endpoint URL.
+   * The Crawler endpoint URL.
    *
    * @var string
    */
