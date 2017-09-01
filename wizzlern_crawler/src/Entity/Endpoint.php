@@ -4,7 +4,6 @@ namespace Drupal\wizzlern_crawler\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\wizzlern_crawler\EndpointInterface;
 
 /**
  * Defines the Endpoint entity.
@@ -13,7 +12,7 @@ use Drupal\wizzlern_crawler\EndpointInterface;
  *   id = "endpoint",
  *   label = @Translation("HTML endpoint"),
  *   handlers = {
- *     "list_builder" = "Drupal\wizzlern_crawler\Controller\EndpointListBuilder",
+ *     "list_builder" = "Drupal\wizzlern_crawler\EndpointListBuilder",
  *     "form" = {
  *       "add" = "Drupal\wizzlern_crawler\Form\EndpointForm",
  *       "edit" = "Drupal\wizzlern_crawler\Form\EndpointForm",

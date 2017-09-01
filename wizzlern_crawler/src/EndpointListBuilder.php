@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\wizzlern_crawler\Controller;
+namespace Drupal\wizzlern_crawler;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
