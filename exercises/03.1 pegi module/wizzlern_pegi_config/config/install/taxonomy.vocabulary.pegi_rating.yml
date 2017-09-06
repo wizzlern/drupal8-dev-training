@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Pegi rating'
-vid: pegi_rating
-description: ''
-hierarchy: 0
-weight: 0
