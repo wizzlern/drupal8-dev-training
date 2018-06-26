@@ -1,0 +1,143 @@
+/**
+ * Based on Solarized Light theme for reveal.js.
+ */
+
+// Default mixins and settings -----------------
+@import "../../node_modules/reveal.js/css/theme/template/mixins";
+@import "../../node_modules/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(./../node_modules/reveal.js/lib/font/league-gothic/league-gothic.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+$base03:    #000; // Background color
+$base02:    #666; // Image border
+$base01:    #333; // Heading color
+$base00:    #333; // Text color
+$base3:     $base03;
+
+$mainFont: 'Lato', sans-serif;
+$mainFontSize: 30px;
+
+$heading1Size: 2.1em;
+$heading2Size: 1.8em;
+$heading3Size: 1.3em;
+$heading4Size: 1em;
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: $base00;
+$headingColor: $base01;
+$headingTextShadow: none;
+$backgroundColor: $base3;
+$linkColor: $base02;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $base00;
+
+// Theme template ------------------------------
+@import "../../node_modules/reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+
+body {
+  background-color: #000;
+}
+
+.reveal .slide-background {
+  background-size: contain;
+}
+
+.reveal .slides {
+  margin-top: -3%;
+}
+
+.reveal section {
+  text-align: left;
+}
+
+.reveal section.layout-two-col p > ul,
+.reveal section.layout-two-col > ul {
+  column-count: 2;
+  column-gap: 2em;
+}
+
+.reveal section.layout-two-col li,
+.reveal section.layout-three-col li {  
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.reveal section.layout-three-col p > ul,
+.reveal section.layout-three-col > ul {
+  column-count: 3;
+  column-gap: 2em;
+}
+
+// Images are always wrapped in p.
+.reveal section.layout-title-page p {
+  text-align: center;
+}
+
+// Images are always wrapped in p.
+// @todo Need a fix for auto hight of images.
+.reveal section.layout-image p {
+  text-align: center;
+}
+
+.reveal section h1 {
+  text-align: center;
+}
+
+.reveal p {
+//  font-size: $mainFontSize;
+}
+
+.reveal li > p {
+  margin-bottom : 0;
+}
+
+.reveal p {
+    margin: 1.3 em 0;
+}
+
+.reveal ul {
+	list-style-type: disc;
+}
+
+.reveal ul ul {
+	list-style-type: disc;
+}
+
+.reveal ul ul ul {
+	list-style-type: disc;
+}
+
+.reveal section img {
+  display: block;
+  margin: 0 auto;
+	border-color: $base02;
+  box-shadow: none;
+  border: none;
+}
+
+.reveal pre {
+  width: 100%;
+  font-size: 0.6em;
+}
+
+.reveal code {
+  font-size: 75%;
+  vertical-align: middle;
+}
+
+.reveal pre > code {
+  font-size: 16px;
+}

@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Drupal 8 Fundamentals | Open Drupal</title>
+
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'node_modules/reveal.js/css/print/pdf.css' : 'node_modules/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-markdown data-background="assets/background/logo.png"></section>
+        <section data-markdown="slides/000-title.md" 
+        		data-background="assets/background/title.png">
+        </section>
+        <section data-markdown="slides/010-about-wizzlern.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/020-outline.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/030-exercises.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/100-cms-framework.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/110-first-module.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/120-modify-forms.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/195-summary.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/200-drupal-7-versus-8.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/210-blocks.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/220-entities.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/230-module-development.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/240-namespace.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/295-summary.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/300-page-call.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/310-permissions.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/320-caching.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/330-security.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/340-menus.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/350-forms.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/395-summary.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/400-configuration.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/410-configuration-management.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/420-translation.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/430-dependency-injection.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/440-services.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/495-summary.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/500-plugins.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/510-composer.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/520-theming.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/530-twig.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/540-install-update.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown="slides/595-summary.md"
+                 data-separator-vertical="^\n--vv--\n"
+                 data-separator-notes="^Note:"
+                 data-background="assets/background/slide.png">
+        </section>
+        <section data-markdown data-background="assets/background/title.png">
+          <script type="text/template">
+            # License
+            <!-- .slide: class="layout-title-page" -->
+            
+            This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+          </script>
+        </section>
+			</div>
+		</div>
+
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="node_modules/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/node_modules/reveal.js#configuration
+			// - https://github.com/hakimel/node_modules/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'node_modules/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'node_modules/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+				history: true,
+				controlsTutorial: false,
+				center: false,
+				transition: 'none',
+				backgroundTransition: 'none',
+				width: '760',
+				height: '580',
+				margin: 0.15,
+			});
+		</script>
+	</body>
+</html>

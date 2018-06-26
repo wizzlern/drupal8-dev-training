@@ -1,0 +1,17 @@
+{
+  "name": "wizzlern-drupal-fundamentals",
+  "version": "1.0.0",
+  "description": "Drupal Fundamentals training materials",
+  "main": "slides/day1.html",
+  "scripts": {},
+  "author": "Sutharsan (Erik Stielstra)",
+  "license": "CC-BY-SA-4.0",
+  "dependencies": {
+    "reveal.js": "^3.6.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-sass": "^2.0.0"
+  }
+}
