@@ -8,15 +8,3 @@ entity.endpoint.collection:
   title: 'Endpoint: Listing'
   route_name: entity.endpoint.collection
   description: 'List Endpoints'
-
-entity.dom_fragments.collection:
-  title: 'DomFragments: Listing'
-  route_name: entity.dom_fragments.collection
-  description: 'List DomFragments'
-
-dom_fragments.admin.structure.settings:
-  title: DomFragments Settings
-  description: 'Configure DomFragments entity'
-  route_name:  dom_fragments.settings
-  parent: system.admin_structure
-
